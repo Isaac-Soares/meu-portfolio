@@ -1,82 +1,46 @@
+# 💼 Meu Portfólio
 
-# Guia de Integração - PortfolioHUB
+Este repositório contém meus projetos acadêmicos e pessoais, criados com o objetivo de desenvolver um portfólio técnico e profissional robusto.
 
-## Repositório GitHub
-- Todos os projetos estarão versionados no GitHub.
-- Uso de branches para novas funcionalidades e pull requests para revisão.
+---
 
-## Google Drive
-- Documentos de planejamento, controle e políticas estarão no Drive.
-- Links para os repositórios serão organizados em planilhas.
-
-## Google Calendar
-- Calendário para prazos, reuniões e marcos do projeto.
-
-## Fluxo de Trabalho
-1. Planejamento e documentação no Google Docs.
-2. Desenvolvimento local com Git.
-3. Commit, push e pull requests no GitHub.
-4. Atualização da documentação no Drive.
-5. Uso do Google Calendar para acompanhamento.
+## 📁 Estrutura do Repositório
 
 
-# Plano de Implantação do PortfolioHUB
 
-## Objetivo
-Criar uma plataforma centralizada para exibir e gerenciar meus projetos acadêmicos e pessoais, integrando GitHub e Google Workspace, com foco em colaboração e segurança.
+---
 
-## Ferramentas Utilizadas
-- GitHub (repositórios e versionamento)
-- Google Workspace (Drive, Docs, Calendar)
-- Google GEMINI (apoio e revisão)
+## 🔐 Gestão de Usuários e Segurança
 
-## Etapas da Implantação
-1. Planejamento detalhado da implantação
-2. Configuração inicial do ambiente Google Workspace
-3. Gestão de usuários e segurança
-4. Integração com GitHub e controle de acesso
-5. Testes finais e validação
-6. Apresentação do PortfolioHUB
+Este projeto segue boas práticas de segurança e controle de acesso para garantir a integridade e colaboração segura entre os usuários. Abaixo estão os principais pontos implementados:
 
-## Cronograma
-| Atividade                         | Data           |
-|----------------------------------|----------------|
-| Planejamento                     | 01/06/2025     |
-| Configuração do Google Workspace | 03/06/2025     |
-| Gestão de usuários e segurança   | 05/06/2025     |
-| Integração GitHub                | 07/06/2025     |
-| Testes e validação               | 10/06/2025     |
-| Apresentação                    | 12/06/2025     |
+### 🧑‍💼 Gestão de Usuários
 
-## Observações
-Utilizar o Google GEMINI para revisão e sugestões de melhoria ao longo do processo.
+- A colaboração é feita através de convites via GitHub para contribuidores confiáveis;
+- Cada colaborador deve criar uma branch separada para suas alterações, facilitando o controle e revisão;
+- Pull requests são obrigatórios para a integração de código na branch principal (`main`);
+- Comentários e revisões são utilizados para garantir qualidade e aprendizado em equipe.
 
+### 🔐 Práticas de Segurança
 
-# Política de Segurança e Gestão de Usuários - PortfolioHUB
+- Os projetos são versionados com Git, permitindo rastreamento de todas as alterações;
+- Nenhum dado sensível é incluído no repositório (como senhas, tokens ou arquivos `.env`);
+- Um arquivo `.gitignore` é utilizado para garantir que arquivos privados não sejam versionados;
+- O repositório permanece **público** para fins de portfólio, mas contribuições externas precisam de aprovação via pull request.
 
-## Gestão de Usuários
-- Apenas usuários autorizados terão acesso ao Google Workspace e repositórios GitHub.
-- Perfis de acesso serão definidos conforme função (leitura, edição, administração).
-- Senhas fortes e autenticação de dois fatores serão obrigatórias.
+### 🔗 Compartilhamento e Controle de Acesso
 
-## Segurança dos Dados
-- Os dados serão armazenados no Google Drive com permissões restritas.
-- Backups periódicos serão realizados para evitar perda de dados.
-- Compartilhamento de arquivos e pastas será limitado conforme necessidade.
+- O código está hospedado no [GitHub](https://github.com/Isaac-Soares/meu-portfolio) e pode ser visualizado e clonado livremente;
+- O conteúdo pode ser apresentado via **GitHub Pages**, transformando o projeto em um portfólio visual acessível online;
+- Documentos de apoio e planejamento estão armazenados em uma pasta no **Google Drive** com acesso controlado por permissões;
+- **Google Calendar** é utilizado para gerenciamento de prazos e atividades do projeto;
+- **Google Workspace** e **Google Gemini** foram utilizados como ferramentas de apoio para organização e segurança da implantação.
 
-## Conformidade
-- Seguir as melhores práticas indicadas pelo Google GEMINI.
-- Atualizações e auditorias regulares do sistema de acesso.
+---
 
-# Roteiro para Apresentação do PortfolioHUB (YouTube)
+## 📞 Contato
 
-- **Introdução:** Apresentar o PortfolioHUB e seu objetivo.
-- **Ferramentas usadas:** GitHub, Google Workspace, Google GEMINI.
-- **Etapas da implantação:** Breve resumo do plano.
-- **Demonstração:** Mostrar a estrutura do repositório, documentos no Drive e calendário.
-- **Desafios e soluções:** Falar sobre o que foi difícil e como resolveu.
-- **Encerramento:** Agradecimentos e próximos passos.
-
-
+- GitHub: [Isaac-Soares](https://github.com/Isaac-Soares)
+- LinkedIn: [Seu LinkedIn Aqui](https://www.linkedin.com)
 
 
