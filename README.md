@@ -1,46 +1,47 @@
-# 💼 Meu Portfólio
+## Meu Portfólio
 
-Este repositório contém meus projetos acadêmicos e pessoais, criados com o objetivo de desenvolver um portfólio técnico e profissional robusto.
+# Isaac Faria Soares
 
----
+## Sobre mim
+Olá! Meu nome é Isaac Faria Soares, tenho 18 anos e atualmente estou cursando Ciência da Computação no CEUB, onde estou no primeiro semestre. Estou gostando muito do curso e sempre busco aprender coisas novas. No meu tempo livre, gosto de jogar tênis, socializar e jogar com meus amigos.
 
-## 📁 Estrutura do Repositório
-
-
-
----
-
-## 🔐 Gestão de Usuários e Segurança
-
-Este projeto segue boas práticas de segurança e controle de acesso para garantir a integridade e colaboração segura entre os usuários. Abaixo estão os principais pontos implementados:
-
-### 🧑‍💼 Gestão de Usuários
-
-- A colaboração é feita através de convites via GitHub para contribuidores confiáveis;
-- Cada colaborador deve criar uma branch separada para suas alterações, facilitando o controle e revisão;
-- Pull requests são obrigatórios para a integração de código na branch principal (`main`);
-- Comentários e revisões são utilizados para garantir qualidade e aprendizado em equipe.
-
-### 🔐 Práticas de Segurança
-
-- Os projetos são versionados com Git, permitindo rastreamento de todas as alterações;
-- Nenhum dado sensível é incluído no repositório (como senhas, tokens ou arquivos `.env`);
-- Um arquivo `.gitignore` é utilizado para garantir que arquivos privados não sejam versionados;
-- O repositório permanece **público** para fins de portfólio, mas contribuições externas precisam de aprovação via pull request.
-
-### 🔗 Compartilhamento e Controle de Acesso
-
-- O código está hospedado no [GitHub](https://github.com/Isaac-Soares/meu-portfolio) e pode ser visualizado e clonado livremente;
-- O conteúdo pode ser apresentado via **GitHub Pages**, transformando o projeto em um portfólio visual acessível online;
-- Documentos de apoio e planejamento estão armazenados em uma pasta no **Google Drive** com acesso controlado por permissões;
-- **Google Calendar** é utilizado para gerenciamento de prazos e atividades do projeto;
-- **Google Workspace** e **Google Gemini** foram utilizados como ferramentas de apoio para organização e segurança da implantação.
+📧 Para contato: isaacfariasoares@gmail.com
 
 ---
 
-## 📞 Contato
+## Formação
+- Ensino médio completo.
+- Estudante do primeiro semestre de Ciência da Computação no CEUB.
 
-- GitHub: [Isaac-Soares](https://github.com/Isaac-Soares)
-- LinkedIn: [Seu LinkedIn Aqui](https://www.linkedin.com)
+---
+
+## Idiomas
+- Espanhol: nível avançado (7 anos de estudo).
+- Inglês: nível intermediário (2 anos de estudo, continuando a prática).
+
+---
+
+## Projetos acadêmicos e profissionais
+- Participante ativo em um grupo de assistência social no centro espírita, auxiliando pessoas necessitadas.
+- Responsável por divulgar informações sobre a religião espírita e distribuir alimentos.
+- Organização de eventos, como feijoadas, para arrecadação de fundos destinados à melhoria das estruturas do centro e para oferecer aulas de maior qualidade.
+- Realização de aulas e atividades em locais como a rodoviária e o próprio centro espírita.
+
+---
+
+## Habilidades e competências
+- Edição de vídeos com foco em highlights para o YouTube.
+- Experiência em socialização e trabalho em equipe em ambientes comunitários.
+- Toco violão para animar eventos e atividades sociais.
+
+🔗 [Meu canal no YouTube](https://youtube.com/@s1fhs?si=G-rhwa64WC622evd)
+
+---
+
+## Recomendações e testemunhos
+- Voluntário todo sábado no centro espírita, contribuindo com aulas sobre a religião e atividades musicais.
+- Auxílio na distribuição de sopas e suporte às pessoas que participam das aulas.
+- Participação ativa em família no trabalho voluntário do centro.
+
 
 
