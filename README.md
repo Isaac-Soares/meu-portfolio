@@ -4,7 +4,7 @@
 
 ## Sobre mim
 Olá! Meu nome é Isaac Faria Soares, tenho 18 anos e atualmente estou cursando Ciência da Computação no CEUB, onde estou no primeiro semestre. Estou gostando muito do curso e sempre busco aprender coisas novas. No meu tempo livre, gosto de jogar tênis, socializar e jogar com meus amigos.
-
+link da pasta goolge drive: https://drive.google.com/drive/folders/16eMPMXo-oWJ9AafdEoCQYMydiMZxwLh3?usp=sharing
 📧 Para contato: isaacfariasoares@gmail.com
 
 ---
