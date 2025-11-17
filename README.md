@@ -1,47 +1,65 @@
-## Meu Portfólio
+## My Portfolio
 
-# Isaac Faria Soares
-
-## Sobre mim
-Olá! Meu nome é Isaac Faria Soares, tenho 18 anos e atualmente estou cursando Ciência da Computação no CEUB, onde estou no primeiro semestre. Estou gostando muito do curso e sempre busco aprender coisas novas. No meu tempo livre, gosto de jogar tênis, socializar e jogar com meus amigos.
-link da pasta goolge drive: https://drive.google.com/drive/folders/1f7KLv9IBHE57_gVmJqVlUCOg3X6yP9DH?usp=sharing
-📧 Para contato: isaacfariasoares@gmail.com
+# **Isaac Faria Soares**  
+💻 Developer in progress • 🚀 Future **Full Stack Developer**
 
 ---
 
-## Formação
-- Ensino médio completo.
-- Estudante do primeiro semestre de Ciência da Computação no CEUB.
+## About Me
+Hello! My name is **Isaac Faria Soares**, and I am a Computer Science student at **CEUB**.  
+I am highly interested in software development and I am currently preparing myself to become a **Full Stack Developer**.  
+I enjoy learning new technologies, creating projects, and continuously improving my skills.
+
+📂 **Project Folder:**  
+https://drive.google.com/drive/folders/1f7KLv9IBHE57_gVmJqVlUCOg3X6yP9DH?usp=sharing  
+
+📧 **Contact Email:**  
+isaacfariasoares@gmail.com  
 
 ---
 
-## Idiomas
-- Espanhol: nível avançado (7 anos de estudo).
-- Inglês: nível intermediário (2 anos de estudo, continuando a prática).
+## Technologies I am Learning 🚀
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
-## Projetos acadêmicos e profissionais
-- Participante ativo em um grupo de assistência social no centro espírita, auxiliando pessoas necessitadas.
-- Responsável por divulgar informações sobre a religião espírita e distribuir alimentos.
-- Organização de eventos, como feijoadas, para arrecadação de fundos destinados à melhoria das estruturas do centro e para oferecer aulas de maior qualidade.
-- Realização de aulas e atividades em locais como a rodoviária e o próprio centro espírita.
+## Education 🎓
+- High School diploma  
+- Computer Science undergraduate student — **CEUB**
 
 ---
 
-## Habilidades e competências
-- Edição de vídeos com foco em highlights para o YouTube.
-- Experiência em socialização e trabalho em equipe em ambientes comunitários.
-- Toco violão para animar eventos e atividades sociais.
-
-🔗 [Meu canal no YouTube](https://youtube.com/@s1fhs?si=G-rhwa64WC622evd)
+## Languages 🌎
+- **Spanish:** Advanced  
+- **English:** Advanced  
 
 ---
 
-## Recomendações e testemunhos
-- Voluntário todo sábado no centro espírita, contribuindo com aulas sobre a religião e atividades musicais.
-- Auxílio na distribuição de sopas e suporte às pessoas que participam das aulas.
-- Participação ativa em família no trabalho voluntário do centro.
+## Academic and Professional Projects 💼
+- Development of programming and technology-related projects  
+- Video editing and content creation (YouTube highlights)  
+- Continuous study of tools and concepts for **Full Stack Development**
 
+---
 
+## Skills 🛠️
+- Video editing (YouTube highlights)  
+- Strong communication and teamwork  
+- Task organization and time management  
+- Programming fundamentals and development basics  
 
+🔗 **My YouTube Channel:**  
+https://youtube.com/@s1fhs?si=G-rhwa64WC622evd
+
+---
+
+## Recommendations ⭐
+- Responsible, dedicated, and committed to continuous improvement  
+- Excellent teamwork and communication skills  
+- Always eager to learn and deliver high-quality results  
