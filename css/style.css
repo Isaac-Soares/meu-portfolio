@@ -119,21 +119,36 @@ body:has(#desktop-screen.active) .indicador-clique {
    ========================================= */
 @media (max-width: 768px) {
   
-  /* ... (aqui ficam as regras do balão que já tínhamos colocado) ... */
-
-  /* FIX PARA MOSTRAR O QUARTO INTEIRO NO CELULAR */
-  body {
-    background-size: contain !important; /* Faz o quarto caber inteiro na tela */
-    background-position: center !important;
-    background-color: #000 !important; /* Fundo preto onde a imagem não alcançar */
-    background-repeat: no-repeat !important;
+  /* Trava o site inteiro para ele não rolar para baixo de jeito nenhum.
+     Isso força o scroll a funcionar APENAS dentro das janelas! */
+  html, body {
+    overflow: hidden !important;
+    height: 100vh !important;
+    width: 100vw !important;
+    position: fixed !important; 
+    touch-action: none !important; /* Desativa totalmente o "puxar para recarregar" e os zooms acidentais */
   }
 
-  /* Caso o seu quarto seja renderizado pelo Canvas, adicione isto também: */
+  /* Ajuste crucial do Canvas para focar no monitor/gabinete */
   #canvas {
-    width: 100vw;
-    height: 100vh;
-    object-fit: contain !important; 
-    overflow: hidden;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: block !important;
+    /* object-fit cover garante que não vai ter bordas pretas */
+    object-fit: cover !important; 
+    
+    /* 🔥 O SEGREDO DO ENQUADRAMENTO 🔥
+       O primeiro valor (X%) move a câmera para a direita/esquerda.
+       Aumente para focar mais na direita (ex: 70%), diminua para a esquerda (ex: 20%). */
+    object-position: 65% center !important; 
+  }
+
+  /* Reposiciona a seta "CLICK HERE" para o novo enquadramento do monitor */
+  .indicador-clique {
+    /* Como a câmera foi movida para a direita (65%), o monitor deve estar mais para a esquerda na tela do celular.
+       Ajuste este 'left' até o balão ficar exatamente em cima da tela desenhada. */
+    top: 45% !important;  
+    left: 45% !important; 
+    transform: translate(-50%, -50%) scale(0.85) !important;
   }
 }

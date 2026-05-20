@@ -47,7 +47,7 @@
 
 /* 🔥 NOVA CLASSE: Ajusta e renderiza a imagem do ícone perfeitamente */
 .pixel-icon-img {
-  width: 100%;         
+  width: 100%;        
   height: 100%;
   object-fit: contain; 
   
@@ -291,9 +291,9 @@
 .project-list-container {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* ⬅️ Aumentei aqui! Ajuste esse valor (Ex: 12px, 16px, 20px) para dar mais ou menos espaço */
+  gap: 20px; 
   width: 100%;
-  user-select: none; /* 🚫 Impede o usuário de selecionar/destacar o texto com o mouse */
+  user-select: none; 
 }
 
 /* =========================================
@@ -301,7 +301,7 @@
 ========================================= */
 
 /* Custom Scrollbar */
-.custom-scroll { scroll-behavior: smooth; } /* Ativa a rolagem suave do botão Voltar ao Topo */
+.custom-scroll { scroll-behavior: smooth; } 
 .custom-scroll::-webkit-scrollbar { width: 8px; }
 .custom-scroll::-webkit-scrollbar-track { background: #121212; }
 .custom-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
@@ -317,7 +317,7 @@
 .profile-layout {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start; /* CRÍTICO: necessário para a foto deslizar (sticky) funcionar! */
+  align-items: flex-start; 
 }
 
 /* Sidebar (Esquerda) com a Foto Grudada */
@@ -328,11 +328,9 @@
   padding: 30px;
   border-right: 1px solid #222;
   text-align: center;
-  
-  /* A MÁGICA QUE FAZ A FOTO DESCER JUNTO: */
   position: sticky;
   top: 0;
-  height: max-content; /* Garante que a barra não estique até o fim */
+  height: max-content; 
 }
 
 /* --- MÁGICA DA FOTO TROCANDO AQUI --- */
@@ -384,7 +382,7 @@
   border: 1px dashed #4af626;
   border-radius: 4px;
   transition: 0.2s;
-  display: block; /* Faz o botão esticar */
+  display: block; 
 }
 
 .back-to-top-btn:hover {
@@ -510,26 +508,90 @@ a.cert-name em {
 
 /* Datas e Duração (Ajustado para leitura perfeita) */
 .cert-meta {
-  font-size: 1rem; /* ⬅️ Aumentamos bem o tamanho (antes era 0.75rem) */
-  color: #aaa; /* ⬅️ Deixamos o cinza mais claro para dar contraste */
-  margin: 3px 0 0 0 !important; /* ⬅️ Um pequeno espaço para desgrudar de cima */
+  font-size: 1rem; 
+  color: #aaa; 
+  margin: 3px 0 0 0 !important; 
   font-family: 'VT323', monospace; 
-  letter-spacing: 1px; /* ⬅️ Afastamos as letras um pouquinho para não embolar */
+  letter-spacing: 1px; 
+}
+
+/* =========================================
+   ✨ ACCORDION DE CERTIFICADOS (DETAILS/SUMMARY)
+   ========================================= */
+
+/* Transforma o título num botão clicável e alinha os itens */
+.retro-accordion summary {
+  cursor: pointer;
+  list-style: none; /* Remove a seta nativa no Firefox */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+  user-select: none; /* Impede o usuário de selecionar o texto sem querer ao clicar */
+}
+
+/* Remove a seta nativa no Chrome/Safari/Edge */
+.retro-accordion summary::-webkit-details-marker {
+  display: none; 
+}
+
+/* Estilo do botão de [ + ] e [ - ] */
+.toggle-hint {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  color: #888; /* Começa cinza */
+  transition: color 0.2s;
+}
+
+/* Fica verde quando o mouse passa por cima */
+.retro-accordion summary:hover .toggle-hint {
+  color: #4af626;
+}
+
+/* Mágica: O texto muda sozinho dependendo se a aba está aberta ou fechada! */
+.retro-accordion:not([open]) .toggle-hint::after {
+  content: "[ + SHOW ]";
+}
+
+.retro-accordion[open] .toggle-hint::after {
+  content: "[ - HIDE ]";
+}
+
+/* Animação suave para revelar os certificados */
+.retro-accordion[open] .cert-list {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
 /* =========================================
    📱 RESPONSIVIDADE (MOBILE & TABLETS)
    ========================================= */
-
 @media (max-width: 768px) {
   
-  /* 1. Ajuste da janela: garantindo que ela não ultrapasse a tela */
+  /* 1. Ajuste geral do topo para fugir da barra do Chrome */
+  .topbar {
+    padding-top: 50px !important; 
+    padding-right: 15px !important;
+  }
+
+  /* 2. Grid de Ícones na Área de Trabalho */
+  .desktop-grid {
+    max-width: 100% !important;
+    gap: 30px 20px !important; 
+    margin: 10px auto !important; 
+  }
+
+  /* 3. Ajuste da janela: descendo um pouco e garantindo que não vaze */
   .window-pixel {
     width: 95% !important;
-    height: 85vh !important; /* Usa Viewport Height para ficar exato na tela */
-    max-height: 85vh !important;
-    top: 5% !important;
+    height: 80vh !important; 
+    max-height: 80vh !important;
+    top: 10% !important; 
     left: 2.5% !important;
     box-sizing: border-box;
     display: flex !important;
@@ -540,58 +602,37 @@ a.cert-name em {
   .window-body {
     flex: 1 1 auto !important;
     height: 100% !important;
-    overflow-y: auto !important; /* Força a rolagem vertical */
-    -webkit-overflow-scrolling: touch !important; /* Libera o touch no iOS/Android */
-    overscroll-behavior: contain !important; /* Evita que o fundo do site role junto */
+    overflow-y: auto !important; 
+    -webkit-overflow-scrolling: touch !important; 
+    overscroll-behavior: contain !important; 
+    padding-bottom: 50px !important; /* Espaço extra no final para ler tranquilo */
   }
 
-  /* 2. Sobre Mim - Empilhar Foto e Texto */
-  .profile-layout {
+  /* 4. Empilhando Foto, Textos e Projetos */
+  .profile-layout, .project-details-layout {
     flex-direction: column !important;
   }
 
-  .profile-sidebar {
+  .profile-sidebar, .profile-main, .project-info-sidebar, .project-main-description {
     width: 100% !important;
     min-width: 100% !important;
     border-right: none !important;
+    box-sizing: border-box !important;
+    position: relative !important; /* Solta os elementos que estavam "sticky" */
+    height: auto !important; 
+  }
+
+  .profile-sidebar {
     border-bottom: 2px solid #222 !important;
     padding: 20px 15px !important;
-    box-sizing: border-box !important;
-    position: relative !important; /* Solta a foto no mobile */
-    height: auto !important; /* DESTRAVA O SCROLL que estava preso na foto */
   }
 
   .profile-main {
-    min-width: 100% !important;
     padding: 20px 15px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 3. Janela de Detalhes do Projeto - Empilhar */
-  .project-details-layout {
-    flex-direction: column !important;
-  }
-
-  .project-info-sidebar {
-    width: 100% !important;
-    min-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  .project-main-description {
-    min-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-
-  /* 4. Grid de Ícones na Área de Trabalho */
-  .desktop-grid {
-    max-width: 100% !important;
-    gap: 30px 20px !important; 
-    margin: 10px auto !important; 
   }
 }
 
-/* Ajustes finos para celulares pequenos */
+/* Ajustes finos para celulares bem pequenos */
 @media (max-width: 480px) {
   .desktop-grid {
     grid-template-columns: repeat(2, 1fr) !important; 
