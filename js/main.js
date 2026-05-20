@@ -45,8 +45,20 @@ function drawImageCover(img) {
     drawH = img.height * (w / img.width)
   }
 
-  const x = (w - drawW) / 2
-  const y = (h - drawH) / 2
+  /* 🔥 O SEGREDO ESTÁ AQUI 🔥 
+     0.5 = Centralizado (Padrão do PC)
+     0.75 = Empurra a imagem para a direita no celular (mostrando o monitor) */
+  let xOffset = 0.5; 
+  
+  if (w <= 768) {
+      xOffset = 0.70; /* ⬅️ AJUSTE ESSE NÚMERO! Tente 0.65, 0.75 ou 0.80 até o clique bater com o monitor */
+  }
+
+  const x = (w - drawW) * xOffset;
+  const y = (h - drawH) / 2;
+
+  // Salvamos os dados globais para evitar bugs no interactions.js
+  window.bgData = { x, y, drawW, drawH };
 
   ctx.drawImage(img, x, y, drawW, drawH)
 }

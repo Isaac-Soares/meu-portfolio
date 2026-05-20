@@ -574,45 +574,44 @@ a.cert-name em {
    ========================================= */
 @media (max-width: 768px) {
   
-  /* Ajuste geral do topo para fugir da barra do Chrome/Safari */
   .topbar {
     padding-top: 40px !important; 
     padding-right: 15px !important;
   }
 
-  /* 2. Grid de Ícones na Área de Trabalho */
   .desktop-grid {
     max-width: 100% !important;
     gap: 30px 20px !important; 
     margin: 10px auto !important; 
   }
 
-  /* 3. A NOVA MÁGICA DA JANELA: Ancora no topo e no fundo em vez de usar 'height' */
+  /* ☢️ SOLUÇÃO NUCLEAR: PREGA A JANELA NA TELA E TRAVA O TAMANHO */
   .window-pixel {
-    width: 92% !important;
-    left: 4% !important;
-    top: 8% !important;     /* Desgruda bem do topo */
-    bottom: 10% !important; /* Desgruda do fundo (evita a barra do navegador) */
-    height: auto !important; 
-    max-height: none !important;
-    box-sizing: border-box;
+    position: fixed !important; /* Ignora o fundo do site */
+    top: 5% !important;
+    left: 2.5% !important; 
+    width: 95% !important;
+    height: 85vh !important; /* Trava em 85% da tela do celular */
+    max-height: 85vh !important;
+    z-index: 9999 !important; /* Fica acima de TUDO */
     display: flex !important;
     flex-direction: column !important;
   }
 
-  /* Preenchimento total e scroll perfeito */
+  /* ☢️ CÁLCULO EXATO PARA O TEXTO ROLAR */
   .window-body {
-    flex: 1 1 auto !important;
-    height: 100% !important;
-    overflow-y: auto !important; 
+    height: calc(100% - 40px) !important; /* A janela toda MENOS o título */
+    flex: none !important; /* Remove o flexbox que buga no celular */
+    overflow-y: scroll !important; /* Força a barra de rolagem */
     -webkit-overflow-scrolling: touch !important; 
-    overscroll-behavior: contain !important; 
-    padding: 20px 15px !important; 
+    overscroll-behavior: none !important; /* Proíbe o fundo de rolar junto */
+    padding: 20px 15px 40px 15px !important; 
   }
 
-  /* 4. Empilhando Foto, Textos e Projetos */
+  /* Empilhando conteúdos */
   .profile-layout, .project-details-layout {
     flex-direction: column !important;
+    display: block !important; /* Tira o flex para garantir o scroll vertical */
   }
 
   .profile-sidebar, .profile-main, .project-info-sidebar, .project-main-description {
