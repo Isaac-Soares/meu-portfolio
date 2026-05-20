@@ -524,73 +524,84 @@ a.cert-name em {
 
 @media (max-width: 768px) {
   
-  /* 1. Janelas ocupando a tela quase toda */
+  /* 1. Ajuste da janela: garantindo que ela não ultrapasse a tela */
   .window-pixel {
-    width: 95%;
-    height: 90%;
-    top: 5%;
-    left: 2.5%;
+    width: 95% !important;
+    height: 85vh !important; /* Usa Viewport Height para ficar exato na tela */
+    max-height: 85vh !important;
+    top: 5% !important;
+    left: 2.5% !important;
     box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* ✨ A MÁGICA DO SCROLL NO CELULAR AQUI ✨ */
+  .window-body {
+    flex: 1 1 auto !important;
+    height: 100% !important;
+    overflow-y: auto !important; /* Força a rolagem vertical */
+    -webkit-overflow-scrolling: touch !important; /* Libera o touch no iOS/Android */
+    overscroll-behavior: contain !important; /* Evita que o fundo do site role junto */
   }
 
   /* 2. Sobre Mim - Empilhar Foto e Texto */
   .profile-layout {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .profile-sidebar {
-    width: 100%;
-    min-width: 100%;
-    border-right: none;
-    border-bottom: 2px solid #222;
-    padding: 20px 15px;
-    box-sizing: border-box;
-    /* Remove o sticky no celular para não bloquear a leitura do texto */
-    position: relative; 
+    width: 100% !important;
+    min-width: 100% !important;
+    border-right: none !important;
+    border-bottom: 2px solid #222 !important;
+    padding: 20px 15px !important;
+    box-sizing: border-box !important;
+    position: relative !important; /* Solta a foto no mobile */
+    height: auto !important; /* DESTRAVA O SCROLL que estava preso na foto */
   }
 
   .profile-main {
-    min-width: 100%;
-    padding: 20px 15px;
-    box-sizing: border-box;
+    min-width: 100% !important;
+    padding: 20px 15px !important;
+    box-sizing: border-box !important;
   }
 
   /* 3. Janela de Detalhes do Projeto - Empilhar */
   .project-details-layout {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 
   .project-info-sidebar {
-    width: 100%;
-    min-width: 100%;
-    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .project-main-description {
-    min-width: 100%;
-    box-sizing: border-box;
+    min-width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   /* 4. Grid de Ícones na Área de Trabalho */
   .desktop-grid {
-    max-width: 100%;
-    /* Deixa os ícones mais espaçados para não clicar errado com o dedo */
-    gap: 30px 20px; 
-    margin: 10px auto; 
+    max-width: 100% !important;
+    gap: 30px 20px !important; 
+    margin: 10px auto !important; 
   }
 }
 
-/* Ajustes finos para celulares bem pequenos */
+/* Ajustes finos para celulares pequenos */
 @media (max-width: 480px) {
   .desktop-grid {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr) !important; 
   }
   
   .main-stats h2 {
-    font-size: 1.6rem;
+    font-size: 1.6rem !important;
   }
 
   .section-title {
-    font-size: 1.3rem;
+    font-size: 1.3rem !important;
   }
 }
