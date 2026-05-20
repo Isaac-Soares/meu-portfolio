@@ -568,14 +568,15 @@ a.cert-name em {
 }
 
 
+
 /* =========================================
    📱 RESPONSIVIDADE (MOBILE & TABLETS)
    ========================================= */
 @media (max-width: 768px) {
   
-  /* 1. Ajuste geral do topo para fugir da barra do Chrome */
+  /* Ajuste geral do topo para fugir da barra do Chrome/Safari */
   .topbar {
-    padding-top: 50px !important; 
+    padding-top: 40px !important; 
     padding-right: 15px !important;
   }
 
@@ -586,26 +587,27 @@ a.cert-name em {
     margin: 10px auto !important; 
   }
 
-  /* 3. Ajuste da janela: descendo um pouco e garantindo que não vaze */
+  /* 3. A NOVA MÁGICA DA JANELA: Ancora no topo e no fundo em vez de usar 'height' */
   .window-pixel {
-    width: 95% !important;
-    height: 80vh !important; 
-    max-height: 80vh !important;
-    top: 10% !important; 
-    left: 2.5% !important;
+    width: 92% !important;
+    left: 4% !important;
+    top: 8% !important;     /* Desgruda bem do topo */
+    bottom: 10% !important; /* Desgruda do fundo (evita a barra do navegador) */
+    height: auto !important; 
+    max-height: none !important;
     box-sizing: border-box;
     display: flex !important;
     flex-direction: column !important;
   }
 
-  /* ✨ A MÁGICA DO SCROLL NO CELULAR AQUI ✨ */
+  /* Preenchimento total e scroll perfeito */
   .window-body {
     flex: 1 1 auto !important;
     height: 100% !important;
     overflow-y: auto !important; 
     -webkit-overflow-scrolling: touch !important; 
     overscroll-behavior: contain !important; 
-    padding-bottom: 50px !important; /* Espaço extra no final para ler tranquilo */
+    padding: 20px 15px !important; 
   }
 
   /* 4. Empilhando Foto, Textos e Projetos */
@@ -618,31 +620,17 @@ a.cert-name em {
     min-width: 100% !important;
     border-right: none !important;
     box-sizing: border-box !important;
-    position: relative !important; /* Solta os elementos que estavam "sticky" */
+    position: relative !important; 
     height: auto !important; 
   }
 
   .profile-sidebar {
     border-bottom: 2px solid #222 !important;
-    padding: 20px 15px !important;
+    padding: 0 0 20px 0 !important;
+    margin-bottom: 20px !important;
   }
 
   .profile-main {
-    padding: 20px 15px !important;
-  }
-}
-
-/* Ajustes finos para celulares bem pequenos */
-@media (max-width: 480px) {
-  .desktop-grid {
-    grid-template-columns: repeat(2, 1fr) !important; 
-  }
-  
-  .main-stats h2 {
-    font-size: 1.6rem !important;
-  }
-
-  .section-title {
-    font-size: 1.3rem !important;
+    padding: 0 !important;
   }
 }

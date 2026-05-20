@@ -143,12 +143,10 @@ body:has(#desktop-screen.active) .indicador-clique {
     object-position: 65% center !important; 
   }
 
-  /* Reposiciona a seta "CLICK HERE" para o novo enquadramento do monitor */
+ /* Reposiciona a seta "CLICK HERE" para acertar o monitor na tela do celular */
   .indicador-clique {
-    /* Como a câmera foi movida para a direita (65%), o monitor deve estar mais para a esquerda na tela do celular.
-       Ajuste este 'left' até o balão ficar exatamente em cima da tela desenhada. */
-    top: 45% !important;  
-    left: 45% !important; 
+    top: 65% !important;  /* Empurra mais para baixo */
+    left: 65% !important; /* Empurra mais para a direita */
     transform: translate(-50%, -50%) scale(0.85) !important;
   }
 }
