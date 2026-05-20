@@ -5,7 +5,8 @@ import {
 } from "./animations.js"
 
 import {
-  initInteractions
+  // Mudança aqui: vamos importar a função que atualiza a posição do balão
+  syncMonitorPositions 
 } from "./interactions.js"
 
 import {
@@ -45,22 +46,17 @@ function drawImageCover(img) {
     drawH = img.height * (w / img.width)
   }
 
-  /* 🔥 O SEGREDO ESTÁ AQUI 🔥 
-     0.5 = Centralizado (Padrão do PC)
-     0.75 = Empurra a imagem para a direita no celular (mostrando o monitor) */
-  let xOffset = 0.5; 
-  
-  if (w <= 768) {
-      xOffset = 0.70; /* ⬅️ AJUSTE ESSE NÚMERO! Tente 0.65, 0.75 ou 0.80 até o clique bater com o monitor */
-  }
+  // Define o deslize para a direita no celular (70%) ou centro no PC (50%)
+  const xOffset = (w <= 768) ? 0.70 : 0.5;
 
   const x = (w - drawW) * xOffset;
   const y = (h - drawH) / 2;
 
-  // Salvamos os dados globais para evitar bugs no interactions.js
-  window.bgData = { x, y, drawW, drawH };
-
   ctx.drawImage(img, x, y, drawW, drawH)
+
+  // 🔥 O SEGREDO ESTÁ AQUI 🔥
+  // Imediatamente após desenhar, avisamos o interactions.js onde o monitor está!
+  syncMonitorPositions(x, y, drawW, drawH);
 }
 
 /* =========================
@@ -86,7 +82,7 @@ async function init() {
   roomImg = await loadImage("assets/room/white/typing1.jpeg")
 
   initCanvas()
-  initInteractions()
+  // initInteractions() // Removemos a inicialização automática antiga
   initDesktop()
 
   animate()
