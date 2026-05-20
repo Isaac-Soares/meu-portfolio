@@ -33,13 +33,7 @@ export function initInteractions() {
       drawH = IMG_ORIGINAL_H * (w / IMG_ORIGINAL_W);
     }
 
-    // 🔥 A MESMA MATEMÁTICA DO MAIN.JS, AGORA INDEPENDENTE 🔥
-    let xOffset = 0.5; // Padrão PC (Centro)
-    if (w <= 768) {
-      xOffset = 0.70; // Padrão Celular (Deslizado para a direita). Mude aqui se precisar afinar a mira!
-    }
-
-    const imgX = (w - drawW) * xOffset;
+    const imgX = (w - drawW) / 2;
     const imgY = (h - drawH) / 2;
     const escala = drawW / IMG_ORIGINAL_W;
 
@@ -48,17 +42,15 @@ export function initInteractions() {
       clickXMax: imgX + (MONIT_X_MAX * escala),
       clickYMin: imgY + (MONIT_Y_MIN * escala),
       clickYMax: imgY + (MONIT_Y_MAX * escala),
-      
       centroX: imgX + (((MONIT_X_MIN + MONIT_X_MAX) / 2) * escala),
       centroY: imgY + (((MONIT_Y_MIN + MONIT_Y_MAX) / 2) * escala)
     };
   }
 
   function reposicionarIndicador() {
-    if (indicador && !desktopScreen.classList.contains("active")) {
+    // Só reposiciona se for PC (tela maior que 768px) e o desktop estiver fechado
+    if (window.innerWidth > 768 && indicador && !desktopScreen.classList.contains("active")) {
       const monitor = obterLimitesAtuaisDoMonitor();
-      
-      // Removemos o !important do JS para não dar tela azul no PC kkkk
       indicador.style.top = `${monitor.centroY - 5}px`; 
       indicador.style.left = `${monitor.centroX}px`;
     }

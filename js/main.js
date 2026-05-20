@@ -26,7 +26,7 @@ function loadImage(src) {
 }
 
 /* =========================
-   DRAW BACKGROUND
+   DRAW BACKGROUND (Original, centralizado)
 ========================= */
 function drawImageCover(img) {
   const w = window.innerWidth
@@ -45,20 +45,8 @@ function drawImageCover(img) {
     drawH = img.height * (w / img.width)
   }
 
-  /* 🔥 O SEGREDO ESTÁ AQUI 🔥 
-     0.5 = Centralizado (Padrão do PC)
-     0.75 = Empurra a imagem para a direita no celular (mostrando o monitor) */
-  let xOffset = 0.5; 
-  
-  if (w <= 768) {
-      xOffset = 0.70; /* ⬅️ AJUSTE ESSE NÚMERO! Tente 0.65, 0.75 ou 0.80 até o clique bater com o monitor */
-  }
-
-  const x = (w - drawW) * xOffset;
-  const y = (h - drawH) / 2;
-
-  // Salvamos os dados globais para evitar bugs no interactions.js
-  window.bgData = { x, y, drawW, drawH };
+  const x = (w - drawW) / 2
+  const y = (h - drawH) / 2
 
   ctx.drawImage(img, x, y, drawW, drawH)
 }
@@ -90,6 +78,22 @@ async function init() {
   initDesktop()
 
   animate()
+
+  /* 🔥 A MÁGICA DO BYPASS PARA CELULAR AQUI 🔥 */
+  if (window.innerWidth <= 768) {
+    const desktop = document.getElementById("desktop-screen");
+    const indicador = document.querySelector(".indicador-clique.pixel-art");
+    
+    // Abre a tela do computador direto!
+    if (desktop) desktop.classList.add("active");
+    
+    // Esconde o balão para ele não ficar voando no fundo
+    if (indicador) {
+      indicador.style.opacity = "0";
+      indicador.style.visibility = "hidden";
+      indicador.style.display = "none";
+    }
+  }
 }
 
 init()
