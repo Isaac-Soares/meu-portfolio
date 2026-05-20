@@ -113,3 +113,28 @@ body:has(#desktop-screen.active) .indicador-clique {
   0%, 100% { transform: translate(-50%, -50%); }
   50% { transform: translate(-50%, -62%); }
 }
+
+/* =========================================
+   📱 RESPONSIVIDADE GERAL (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+  /* Ajusta o tamanho do balão inicial "CLICK HERE" */
+  .indicador-clique {
+    transform: translate(-50%, -50%) scale(0.85); /* Reduz um pouquinho o tamanho */
+  }
+
+  .balao-pixel {
+    padding: 15px 25px;
+  }
+
+  .texto-pixel {
+    font-size: 1.2rem;
+  }
+
+  /* Garante que o canvas de fundo não crie barras de rolagem estranhas */
+  #canvas {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+}

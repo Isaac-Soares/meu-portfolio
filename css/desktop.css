@@ -516,3 +516,81 @@ a.cert-name em {
   font-family: 'VT323', monospace; 
   letter-spacing: 1px; /* ⬅️ Afastamos as letras um pouquinho para não embolar */
 }
+
+
+/* =========================================
+   📱 RESPONSIVIDADE (MOBILE & TABLETS)
+   ========================================= */
+
+@media (max-width: 768px) {
+  
+  /* 1. Janelas ocupando a tela quase toda */
+  .window-pixel {
+    width: 95%;
+    height: 90%;
+    top: 5%;
+    left: 2.5%;
+    box-sizing: border-box;
+  }
+
+  /* 2. Sobre Mim - Empilhar Foto e Texto */
+  .profile-layout {
+    flex-direction: column;
+  }
+
+  .profile-sidebar {
+    width: 100%;
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #222;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    /* Remove o sticky no celular para não bloquear a leitura do texto */
+    position: relative; 
+  }
+
+  .profile-main {
+    min-width: 100%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+  }
+
+  /* 3. Janela de Detalhes do Projeto - Empilhar */
+  .project-details-layout {
+    flex-direction: column;
+  }
+
+  .project-info-sidebar {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .project-main-description {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 4. Grid de Ícones na Área de Trabalho */
+  .desktop-grid {
+    max-width: 100%;
+    /* Deixa os ícones mais espaçados para não clicar errado com o dedo */
+    gap: 30px 20px; 
+    margin: 10px auto; 
+  }
+}
+
+/* Ajustes finos para celulares bem pequenos */
+@media (max-width: 480px) {
+  .desktop-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+  
+  .main-stats h2 {
+    font-size: 1.6rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+}

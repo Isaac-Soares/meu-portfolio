@@ -126,3 +126,32 @@ body {
 .desktop-content {
   padding: 60px;
 }
+
+/* =========================================
+   📱 RESPONSIVIDADE DO MONITOR (MOBILE)
+   ========================================= */
+@media (max-width: 768px) {
+  .monitor-container {
+    padding: 0; /* Tira o espaçamento em volta */
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .monitor {
+    width: 100%;
+    height: 100%;
+    border-radius: 0; /* Tira as bordas arredondadas da "carcaça" */
+    border: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .screen {
+    border-radius: 0; /* Tela quadrada ocupando tudo */
+    border: none;
+  }
+
+  .monitor-bottom {
+    display: none; /* Esconde o "pé" do monitor no celular */
+  }
+}
