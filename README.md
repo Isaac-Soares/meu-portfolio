@@ -1,46 +1,68 @@
-# Isaac Faria Soares
-## Full Stack Developer
 
-Hello! I am a 19-year-old Computer Science student at CEUB. I am deeply passionate about software development and am constantly learning to sharpen my skills as a Full Stack Developer. I combine technical knowledge with a creative approach to problem-solving.
+=======
+## My Portfolio
 
-📧 **Contact:** [isaacfariasoares@gmail.com](mailto:isaacfariasoares@gmail.com)
-
----
-
-## 🛠 Technical Skills
-- **Languages & Frameworks:** Python, JavaScript, Java, HTML5, CSS3.
-- **Tools:** Git, GitHub, VS Code, Netlify.
-- **Creative:** Video editing & YouTube content creation.
+# **Isaac Faria Soares**  
+💻 Developer in progress • 🚀 Future **Full Stack Developer**
 
 ---
 
-## 🎓 Education
-- **Bachelor of Computer Science** | CEUB (Centro Universitário de Brasília) – 1st Year.
-- **High School Diploma** – Completed.
+## About Me
+Hello! My name is **Isaac Faria Soares**, and I am a Computer Science student at **CEUB**.  
+I am highly interested in software development and I am currently preparing myself to become a **Full Stack Developer**.  
+I enjoy learning new technologies, creating projects, and continuously improving my skills.
+
+📂 **Project Folder:**  
+https://drive.google.com/drive/folders/1f7KLv9IBHE57_gVmJqVlUCOg3X6yP9DH?usp=sharing  
+
+📧 **Contact Email:**  
+isaacfariasoares@gmail.com  
 
 ---
 
-## 🌍 Languages
-- **Spanish:** Advanced (7 years).
-- **English:** Intermediate (2 years of continuous practice).
+## Technologies I am Learning 🚀
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white)
 
 ---
 
-## 🚀 Projects & Experience
-- **Volunteer Work:** Active member of a Spiritist Center social group.
-  - Organizing fundraising events to improve facility infrastructure.
-  - Conducting educational sessions and activities for people in vulnerable situations (including outreach at local transit hubs).
-  - Assisting with food distribution and providing musical support (guitar) for community events.
+## Education 🎓
+- High School diploma  
+- Computer Science undergraduate student — **CEUB**
 
 ---
 
-## 🔗 Links
-- **GitHub Portfolio:** [github.com/Isaac-Soares](https://github.com/Isaac-Soares)
-- **LinkedIn:** [linkedin.com/in/isaac-faria-soares](https://www.linkedin.com/in/isaac-faria-soares)
-- **YouTube Channel:** [@s1fhs](https://youtube.com/@s1fhs)
-- **Project Archive:** [Google Drive Folder](https://drive.google.com/drive/folders/1f7KLv9IBHE57_gVmJqVlUCOg3X6yP9DH)
+## Languages 🌎
+- **Spanish:** Advanced  
+- **English:** Advanced  
 
 ---
 
-## 💡 Recommendations & Testimonials
-- Dedicated volunteer with a strong background in teamwork, community outreach, and social support programs. Skilled at balancing academic rigor with active community service.
+## Academic and Professional Projects 💼
+- Development of programming and technology-related projects  
+- Video editing and content creation (YouTube highlights)  
+- Continuous study of tools and concepts for **Full Stack Development**
+
+---
+
+## Skills 🛠️
+- Video editing (YouTube highlights)  
+- Strong communication and teamwork  
+- Task organization and time management  
+- Programming fundamentals and development basics  
+
+🔗 **My YouTube Channel:**  
+https://youtube.com/@s1fhs?si=G-rhwa64WC622evd
+
+---
+
+## Recommendations ⭐
+- Responsible, dedicated, and committed to continuous improvement  
+- Excellent teamwork and communication skills  
+- Always eager to learn and deliver high-quality results  
+>>>>>>> d48ecadcbc670037d110072ecef28c6c5a8870d8
