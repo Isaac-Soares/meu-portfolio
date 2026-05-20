@@ -574,46 +574,50 @@ a.cert-name em {
    ========================================= */
 @media (max-width: 768px) {
   
+  /* Ajuste geral do topo para fugir da barra do Chrome/Safari */
   .topbar {
     padding-top: 40px !important; 
     padding-right: 15px !important;
   }
 
+  /* Grid de Ícones na Área de Trabalho */
   .desktop-grid {
     max-width: 100% !important;
     gap: 30px 20px !important; 
     margin: 10px auto !important; 
   }
 
-  /* ☢️ SOLUÇÃO NUCLEAR: PREGA A JANELA NA TELA E TRAVA O TAMANHO */
+  /* 1. TRAVA A ALTURA DA JANELA PRINCIPAL */
   .window-pixel {
-    position: fixed !important; /* Ignora o fundo do site */
+    position: fixed !important; 
     top: 5% !important;
     left: 2.5% !important; 
     width: 95% !important;
-    height: 85vh !important; /* Trava em 85% da tela do celular */
+    height: 85vh !important; 
     max-height: 85vh !important;
-    z-index: 9999 !important; /* Fica acima de TUDO */
+    z-index: 9999 !important; 
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: column !important; 
+    overflow: hidden !important; 
   }
 
-  /* ☢️ CÁLCULO EXATO PARA O TEXTO ROLAR */
+  /* 2. LIBERA O SCROLL APENAS NO CORPO DA JANELA (A PARTE PRETA) */
   .window-body {
-    height: calc(100% - 40px) !important; /* A janela toda MENOS o título */
-    flex: none !important; /* Remove o flexbox que buga no celular */
-    overflow-y: scroll !important; /* Força a barra de rolagem */
+    flex: 1 !important; 
+    height: auto !important;
+    overflow-y: auto !important; /* 🔥 A BARRA DE ROLAGEM AQUI! */
     -webkit-overflow-scrolling: touch !important; 
-    overscroll-behavior: none !important; /* Proíbe o fundo de rolar junto */
+    overscroll-behavior: contain !important; 
     padding: 20px 15px 40px 15px !important; 
   }
 
-  /* Empilhando conteúdos */
+  /* 3. EMPILHA O CONTEÚDO PARA NÃO VAZAR PARA OS LADOS */
   .profile-layout, .project-details-layout {
-    flex-direction: column !important;
-    display: block !important; /* Tira o flex para garantir o scroll vertical */
+    flex-direction: column !important; /* Coloca a foto em cima e o texto embaixo */
+    display: block !important;
   }
 
+  /* Faz a sidebar (foto) e a área principal ocuparem 100% da largura do celular */
   .profile-sidebar, .profile-main, .project-info-sidebar, .project-main-description {
     width: 100% !important;
     min-width: 100% !important;
@@ -623,6 +627,7 @@ a.cert-name em {
     height: auto !important; 
   }
 
+  /* Adiciona uma linha divisória embaixo da foto no celular */
   .profile-sidebar {
     border-bottom: 2px solid #222 !important;
     padding: 0 0 20px 0 !important;
