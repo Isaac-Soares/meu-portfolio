@@ -12,51 +12,73 @@ const MONIT_X_MAX = 1520;
 const MONIT_Y_MIN = 300;  
 const MONIT_Y_MAX = 630;  
 
-// Variáveis para guardar as coordenadas de clique calculadas
-let clickBounds = null;
-const indicador = document.querySelector(".indicador-clique.pixel-art");
-const desktopScreen = document.getElementById("desktop-screen");
+export function initInteractions() {
+  const desktopScreen = document.getElementById("desktop-screen");
+  const indicador = document.querySelector(".indicador-clique.pixel-art");
 
-// 🔥 NOVA FUNÇÃO MASTER 🔥
-// Ela é chamada pelo main.js sempre que a imagem é desenhada.
-export function syncMonitorPositions(xDraw, yDraw, drawW, drawH) {
-  const escala = drawW / IMG_ORIGINAL_W;
+  function obterLimitesAtuaisDoMonitor() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
-  // Calcula os limites de clique e o centro para o balão
-  clickBounds = {
-    xMin: xDraw + (MONIT_X_MIN * escala),
-    xMax: xDraw + (MONIT_X_MAX * escala),
-    yMin: yDraw + (MONIT_Y_MIN * escala),
-    yMax: yDraw + (MONIT_Y_MAX * escala)
-  };
+    const imgRatio = IMG_ORIGINAL_W / IMG_ORIGINAL_H;
+    const screenRatio = w / h;
 
-  const centroX = xDraw + (((MONIT_X_MIN + MONIT_X_MAX) / 2) * escala);
-  const centroY = yDraw + (((MONIT_Y_MIN + MONIT_Y_MAX) / 2) * escala);
+    let drawW, drawH;
 
-  // Atualiza o balão "CLICK HERE" se ele existir
-  if (indicador && !desktopScreen.classList.contains("active")) {
-    indicador.style.top = `${centroY - 5}px`; 
-    indicador.style.left = `${centroX}px`;
+    if (imgRatio > screenRatio) {
+      drawH = h;
+      drawW = IMG_ORIGINAL_W * (h / IMG_ORIGINAL_H);
+    } else {
+      drawW = w;
+      drawH = IMG_ORIGINAL_H * (w / IMG_ORIGINAL_W);
+    }
+
+    // 🔥 A MESMA MATEMÁTICA DO MAIN.JS, AGORA INDEPENDENTE 🔥
+    let xOffset = 0.5; // Padrão PC (Centro)
+    if (w <= 768) {
+      xOffset = 0.70; // Padrão Celular (Deslizado para a direita). Mude aqui se precisar afinar a mira!
+    }
+
+    const imgX = (w - drawW) * xOffset;
+    const imgY = (h - drawH) / 2;
+    const escala = drawW / IMG_ORIGINAL_W;
+
+    return {
+      clickXMin: imgX + (MONIT_X_MIN * escala),
+      clickXMax: imgX + (MONIT_X_MAX * escala),
+      clickYMin: imgY + (MONIT_Y_MIN * escala),
+      clickYMax: imgY + (MONIT_Y_MAX * escala),
+      
+      centroX: imgX + (((MONIT_X_MIN + MONIT_X_MAX) / 2) * escala),
+      centroY: imgY + (((MONIT_Y_MIN + MONIT_Y_MAX) / 2) * escala)
+    };
   }
-}
 
-// Escuta os cliques (o setup é feito apenas uma vez)
-(function setupClickEventListener() {
+  function reposicionarIndicador() {
+    if (indicador && !desktopScreen.classList.contains("active")) {
+      const monitor = obterLimitesAtuaisDoMonitor();
+      
+      // Removemos o !important do JS para não dar tela azul no PC kkkk
+      indicador.style.top = `${monitor.centroY - 5}px`; 
+      indicador.style.left = `${monitor.centroX}px`;
+    }
+  }
+
+  setTimeout(reposicionarIndicador, 100);
+  window.addEventListener("resize", reposicionarIndicador);
+
   window.addEventListener("click", (event) => {
-    // Se o OS já estiver aberto, corta cliques secundários no fundo
     if (desktopScreen.classList.contains("active")) {
       if (event.target.id === "close-desktop" || event.target.closest("#close-desktop")) return;
       return; 
     }
 
-    // Se o main.js ainda não calculou os limites, ignora o clique
-    if (!clickBounds) return;
-
+    const monitor = obterLimitesAtuaisDoMonitor();
     const cliqueX = event.clientX;
     const cliqueY = event.clientY;
 
-    const clicouNoMonitor = (cliqueX >= clickBounds.xMin && cliqueX <= clickBounds.xMax) &&
-                            (cliqueY >= clickBounds.yMin && cliqueY <= clickBounds.yMax);
+    const clicouNoMonitor = (cliqueX >= monitor.clickXMin && cliqueX <= monitor.clickXMax) &&
+                            (cliqueY >= monitor.clickYMin && cliqueY <= monitor.clickYMax);
 
     if (clicouNoMonitor) {
       desktopScreen.classList.add("active");
@@ -66,4 +88,4 @@ export function syncMonitorPositions(xDraw, yDraw, drawW, drawH) {
       }
     }
   });
-})();
+}
