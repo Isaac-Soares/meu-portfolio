@@ -64,4 +64,4 @@ https://youtube.com/@s1fhs?si=G-rhwa64WC622evd
 - Responsible, dedicated, and committed to continuous improvement  
 - Excellent teamwork and communication skills  
 - Always eager to learn and deliver high-quality results  
->>>>>>> d48ecadcbc670037d110072ecef28c6c5a8870d8
+
