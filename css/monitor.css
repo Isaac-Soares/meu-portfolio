@@ -1,0 +1,128 @@
+
+/* =========================
+   BODY (IMPORTANTE)
+========================= */
+
+body {
+  margin: 0;
+  background: #000;
+}
+
+/* =========================
+   MONITOR = TELA INTEIRA
+========================= */
+
+.monitor-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* =========================
+   SCREEN = SITE INTEIRO
+========================= */
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  background: #0f0f0f;
+
+  /* 🔥 borda mais grossa estilo monitor */
+  border: 18px solid rgba(20, 20, 20, 1);
+
+  box-sizing: border-box;
+
+  position: relative;
+
+  /* profundidade */
+  box-shadow:
+    inset 0 0 80px rgba(255, 255, 255, 0.03),
+    0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* leve vinheta estilo monitor */
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background: radial-gradient(
+    circle at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+.desktop {
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    135deg,
+    #0d0d0d,
+    #050505
+  );
+
+  color: white;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+#close-desktop {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: #222;
+
+  transition: 0.3s;
+}
+
+#close-desktop:hover {
+  background: #333;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.desktop-content {
+  padding: 60px;
+}

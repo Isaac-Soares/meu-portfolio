@@ -1,33 +1,459 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortfolioHUB - Centralize Seus Projetos</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IsaacOS</title>
+  <link rel="icon" type="image/png" href="assets/icons/isaac.exe.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/monitor.css">
+  <link rel="stylesheet" href="css/desktop.css">
 </head>
 <body>
-    <header>
-        <h1>Bem-vindo ao PortfolioHUB</h1>
-    </header>
-    <main>
-        <section id="introducao">
-            <h2>Sua Plataforma Centralizada de Portfólios e Projetos</h2>
-            <p id="descricaoPrincipal">
-                O PortfolioHUB é a solução ideal para você exibir e gerenciar seus projetos e portfólios digitais de forma integrada e eficiente.
-                Conecte-se com ferramentas essenciais como Google Workspace (Drive, Calendar) e Git/GitHub, tudo com foco em segurança e colaboração.
-            </p>
-        </section>
 
-        <section id="cta">
-            <button id="infoBotao">Descubra os Benefícios</button>
-            <div id="infoAdicional" class="info-escondida">
+  <canvas id="canvas"></canvas>
+
+  <div class="indicador-clique pixel-art">]
+    <div class="balao-pixel"><span class="texto-pixel">CLICK HERE</span></div>
+    <div class="seta-pixel"></div>
+  </div>
+
+  <div id="desktop-screen">
+    <div class="monitor-container">
+      <div class="monitor">
+        <div class="screen">
+          <div class="desktop">
+            
+            <div class="topbar">
+              <button id="close-desktop">✕</button>
+            </div>
+
+            <div class="desktop-content">
+              
+              <div class="desktop-grid">
+                <div class="app-icon" data-app="about">
+                  <div class="icon-box-pixel">
+                    <img src="assets/icons/about.png" alt="Sobre Mim" class="pixel-icon-img">
+                  </div>
+                  <p>About_ME.txt</p>
                 </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Projeto PortfolioHUB</p>
-    </footer>
-    <script src="script.js"></script>
+
+                <div class="app-icon" data-app="projects">
+                  <div class="icon-box-pixel">
+                    <img src="assets/icons/projects.png" alt="Projects" class="pixel-icon-img">
+                  </div>
+                  <p>Projects</p>
+                </div>
+
+                <div class="app-icon" data-app="minecraft">
+                  <div class="icon-box-pixel">
+                    <img src="assets/icons/minecraft.png" alt="Minecraft" class="pixel-icon-img">
+                  </div>
+                  <p>Minecraft</p>
+                </div>
+
+                <div class="app-icon" data-app="vscode">
+                  <div class="icon-box-pixel">
+                    <img src="assets/icons/vscode.webp" alt="VsCode" class="pixel-icon-img">
+                  </div>
+                  <p>VS Code</p>
+                </div>
+
+                <a href="https://github.com/Isaac-Soares" target="_blank" class="app-icon">
+                  <div class="icon-box-pixel">
+                    <img src="assets/icons/github.png" alt="GitHub" class="pixel-icon-img">
+                  </div>
+                  <p>My GitHub</p>
+                </a>
+              </div>
+
+              <div id="win-about" class="window-pixel">
+                <div class="window-header">
+                  <span>About_Me.txt</span>
+                  <button class="close-window">✕</button>
+                </div>
+                <div class="window-body custom-scroll">
+                  
+                  <div class="profile-layout">
+                    
+                    <div class="profile-sidebar">
+                      <div class="photo-container">
+                        <img src="assets/icons/I.jpeg" alt="Isaac Real" class="img-bottom">
+                        <img src="assets/icons/I_2D.jpeg" alt="Isaac 2D" class="img-top">
+                      </div>
+
+                      <div class="main-stats">
+                        <h2>Isaac Soares</h2>
+                        <span class="tag-dev">Full Stack Developer</span>
+                        <div class="quick-info">
+                          <p><span>AGE:</span> 19y</p>
+                          <p><span>LOC:</span> Brazil 🇧🇷</p>
+                          <p><span>UNI:</span> CEUB (Comp. Science)</p>
+                        </div>
+                      </div>
+
+                      <div style="text-align: left; padding-left: 20px; margin-top: 25px;">
+                        <p style="color: #4af626; font-family: 'VT323', monospace; font-size: 1.2rem; margin: 0 0 10px 0; border-bottom: 1px dashed #333; padding-bottom: 5px;">> CONTACT_ME</p>
+                        
+                        <div class="contact-links">
+                          <a href="mailto:isaacfariasoares@gmail.com" class="link-item">📧 Email</a>
+                          <a href="https://www.linkedin.com/in/isaac-faria-soares/?trk=public-profile-join-page" target="_blank" class="link-item">💼 LinkedIn</a>
+                          <a href="https://github.com/Isaac-Soares" target="_blank" class="link-item">📂 GitHub</a>
+                          <a href="https://youtube.com/@s1fhs?si=G-rhwa64WC622evd" target="_blank" class="link-item">🎥 YouTube</a>
+                        </div>
+                      </div>
+                      
+                      <div class="sidebar-action" style="margin-top: 25px;">
+                        <a href="#about-top" class="back-to-top-btn" style="display: block; width: 100%; box-sizing: border-box; text-align: center;">▲ BACK_TO_TOP</a>
+                      </div>
+                    </div>
+
+                    <div class="profile-main">
+                      <div id="about-top"></div>
+                      
+                      <section class="bio-section">
+                        <h3 class="section-title">> WHO_AM_I</h3>
+                        <p>
+                          Hello! I am a Computer Science student at <strong>CEUB</strong>, deeply passionate about software engineering and technology. 
+                          My goal is to become a high-performance <strong>Full Stack Developer</strong>. I thrive on solving complex logical problems and building applications from the ground up, ensuring both efficient back-end architecture and intuitive front-end user experiences.
+                        </p>
+                      </section>
+
+                      <section class="skills-section">
+                        <h3 class="section-title">> TECH_STACK & SKILLS</h3>
+                        
+                        <div class="skill-category">
+                          <p class="category-title">Languages & Frameworks:</p>
+                          <div class="badge-grid">
+                            <span class="badge html">HTML5</span>
+                            <span class="badge css">CSS3</span>
+                            <span class="badge js">JavaScript</span>
+                            <span class="badge python">Python</span>
+                            <span class="badge java">Java</span>
+                          </div>
+                        </div>
+
+                        <div class="skill-category">
+                          <p class="category-title">Tools & Environment:</p>
+                          <div class="badge-grid">
+                            <span class="badge git">Git</span>
+                            <span class="badge github">GitHub</span>
+                            <span class="badge vscode">VS Code</span>
+                            <span class="badge netlify">Netlify</span>
+                          </div>
+                        </div>
+
+                        <div class="skill-category">
+                          <p class="category-title">Soft Skills & Extras:</p>
+                          <ul class="soft-skills-list">
+                            <li>Advanced Video Editing & Content Creation (YouTube)</li>
+                            <li>Agile Learning & Strong Problem-Solving Logic</li>
+                            <li>Time Management & Project Organization</li>
+                            <li>Languages: Native Portuguese, Advanced English & Spanish</li>
+                          </ul>
+                        </div>
+                      </section>
+
+                      <section class="certifications-section">
+                        <h3 class="section-title">> CERTIFICATIONS & COURSES</h3>
+                        
+                        <div class="cert-list">
+                          <div class="cert-item">
+                            <span class="cert-icon">📜</span>
+                            <div class="cert-details">
+                              <a href="https://drive.google.com/file/d/1qnD877UOMZAoENQkpGMUIpXYHluP8IGw/view?usp=drive_link" target="_blank" class="cert-name">
+                                GIT AND GITHUB: SHARING AND COLLABORATING ON PROJECTS
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Completed: 19 May 2026 • Duration: 8h</p>
+                            </div>
+                          </div>
+
+                          <div class="cert-item">
+                            <span class="cert-icon">📜</span>
+                            <div class="cert-details">
+                              <a href="https://drive.google.com/file/d/1Ux6YbhWGWN84B2i7JXomy5FRw7XLC-v-/view?usp=drive_link" target="_blank" class="cert-name">
+                                PROGRAMMING LOGIC: DIVE INTO PROGRAMMING WITH JAVASCRIPT
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Completed: 1 May 2026 • Duration: 6h</p>
+                            </div>
+                          </div>
+
+                          <div class="cert-item">
+                            <span class="cert-icon">📜</span>
+                            <div class="cert-details">
+                              <a href="https://drive.google.com/file/d/1UsdBtLmRbAxWbrCDFE6jCk6bOvUw5IQJ/view?usp=drive_link" target="_blank" class="cert-name">
+                                COMPUTATIONAL THINKING: FUNDAMENTALS OF COMPUTING AND PROGRAMMING LOGIC
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Completed: 17 May 2026 • Duration: 8h</p>
+                            </div>
+                          </div>
+
+                          <div class="cert-item">
+                            <span class="cert-icon">📜</span>
+                            <div class="cert-details">
+                              <a href="https://drive.google.com/file/d/1XZ1efcQaYZ-9TYNNOgvIjee7A-rPamKX/view?usp=drive_link" target="_blank" class="cert-name">
+                                PYTHON FOR DATA: GETTING STARTED
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Completed: 3 May 2026 • Duration: 10h</p>
+                            </div>
+                          </div>
+
+                          <div class="cert-item">
+                            <span class="cert-icon">📜</span>
+                            <div class="cert-details">
+                              <a href="https://drive.google.com/file/d/1LE8KF67YNXRUCKHYpjrCiKkD40TL9Boj/view?usp=drive_link" target="_blank" class="cert-name">
+                                PYTHON: APPLYING OBJECT ORIENTATION
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Completed: 8 May 2026 • Duration: 6h</p>
+                            </div>
+                          </div>
+
+                          <div class="cert-item">
+                            <span class="cert-icon">📜</span>
+                            <div class="cert-details">
+                              <a href="https://drive.google.com/file/d/1fEABwUEX0ft50iDnJq4VZ_B_JpaRTToi/view?usp=drive_link" target="_blank" class="cert-name">
+                                PYTHON: ADVANCING OBJECT ORIENTATION AND CONSUMING API
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Completed: 16 May 2026 • Duration: 8h</p>
+                            </div>
+                          </div>
+
+                          <div class="cert-item">
+                            <span class="cert-icon">📜</span>
+                            <div class="cert-details">
+                              <a href="https://drive.google.com/file/d/1DO9xGlJf2ZlidAPUrwjoct6hu4zl9OBR/view?usp=drive_link" target="_blank" class="cert-name">
+                                PYTHON: CREATING YOUR FIRST APPLICATION
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Completed: 8 May 2026 • Duration: 8h</p>
+                            </div>
+                          </div>
+
+                          <div class="cert-item">
+                            <span class="cert-icon">🎓</span>
+                            <div class="cert-details">
+                              <a href="#" class="cert-name">
+                                Object-Oriented Java Training <em>(In Progress)</em>
+                              </a>
+                              <p class="cert-issuer">Alura</p>
+                              <p class="cert-meta">Started: Jan 2024 • Expected: Jun 2024</p>
+                            </div>
+                          </div>
+                        </div>
+                      </section>
+
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div id="win-projects" class="window-pixel">
+                <div class="window-header">
+                  <span>📂 File Explorer - C:/Projects</span>
+                  <button class="close-window">✕</button>
+                </div>
+                <div class="window-body" style="background: #1a1a1a; padding: 12px;">
+                  
+                  <div class="project-list-container">
+                    
+                    <div class="project-list-item" data-open-project="meu-projeto-avancado">
+                      <div class="project-item-icon">📁</div>
+                      <div class="project-item-info">
+                        <span class="project-item-name">Château Noir</span>
+                        <span class="project-tag fullstack">Front-end</span>
+                      </div>
+                    </div>
+
+                    <div class="project-list-item" data-open-project="script-python">
+                      <div class="project-item-icon">📁</div>
+                      <div class="project-item-info">
+                        <span class="project-item-name">Automation_Scripts</span>
+                        <span class="project-tag python">Python</span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div id="win-detalhes-projeto" class="window-pixel detail-window">
+                <div class="window-header">
+                  <span>ℹ️ Properties: Château_Noir</span>
+                  <button class="close-window" id="close-details">✕</button>
+                </div>
+                <div class="window-body" style="background: #1e1e1e; color: #fff; padding: 15px; font-family: sans-serif; overflow-y: auto;">
+                  
+                  <div class="project-details-layout">
+                    <div class="project-info-sidebar">
+                      <div class="project-avatar-pixel">🍽️</div>
+                      <h2 class="pixel-font-title">Château Noir</h2>
+                      <p class="project-subtitle">High-Performance Front-end Web Application</p>
+                      
+                     <div class="tech-stack-badges">
+                        <span class="badge" style="background: #e34c26; color: #000;">HTML5</span>
+                        <span class="badge" style="background: #264de4; color: #000;">CSS3</span>
+                        <span class="badge" style="background: #f0db4f; color: #000;">JavaScript</span>
+                        <span class="badge" style="background: #7952b3; color: #000;">Bootstrap 5</span>
+                      </div>
+
+                      <div class="project-action-buttons">
+                        <a href="https://github.com/Isaac-Soares/chateau-Noir" target="_blank" class="btn-project github-btn">
+                          🐙 View Code on GitHub
+                        </a>
+                        <a href="https://693303de9520bf00c3f5631f--golden-kitten-1d99c8.netlify.app" target="_blank" class="btn-project demo-btn">
+                          ⚡ Live Demo
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div class="project-main-description">
+                      <h3>📋 About the Project</h3>
+                      <p>An institutional website developed with a focus on responsiveness, Bootstrap components, and JavaScript interactions, representing a fictional French restaurant named Château Noir.</p>
+                      
+                      <h3>⚙️ Key Features</h3>
+                      <ul>
+                        <li><strong>Dynamic Menu:</strong> Interactive system with a shopping cart integrated using JavaScript.</li>
+                        <li><strong>Augmented Reality Modal:</strong> Interactive QR Code display for extra features and mobile engagement.</li>
+                      </ul>
+
+                      <h3>🧠 Technical Challenge</h3>
+                      <p><em>"One of the main challenges in this project was managing the dynamic shopping cart state across different sections of the menu without a framework. I solved this by implementing a centralized JavaScript state logic and optimizing DOM manipulation, ensuring the UI updated instantly and smoothly for the user."</em></p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div id="win-minecraft" class="window-pixel">
+                <div class="window-header">
+                  <span>Minecraft Classic 1.8.8</span>
+                  <button class="close-window">✕</button>
+                </div>
+                <div class="window-body" style="padding: 0; height: 450px; background: #000;">
+                  <iframe src="minecraft.html" frameborder="0" class="app-iframe" style="width: 100%; height: 100%; display: block;" allow="fullscreen; keyboard; gamepad" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+                </div>
+              </div>
+
+              <div id="win-vscode" class="window-pixel">
+                <div class="window-header">
+                  <span>Visual Studio Code - main.py</span>
+                  <button class="close-window">✕</button>
+                </div>
+                <div class="window-body" style="padding: 0; height: 450px; background: #1e1e1e;">
+                  <iframe src="vscode.html" frameborder="0" class="app-iframe" style="width: 100%; height: 100%; display: block;" allow="fullscreen; keyboard"></iframe>
+                </div>
+              </div>
+
+            </div> </div> </div> <div class="monitor-bottom"></div>
+      </div> </div> </div> <script type="module" src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const appIcons = document.querySelectorAll('.desktop-grid .app-icon[data-app]');
+      const closeButtons = document.querySelectorAll('.window-pixel .close-window');
+      
+      const btnCloseDesktop = document.getElementById('close-desktop');
+      const desktopScreen = document.getElementById('desktop-screen');
+      const indicador = document.querySelector('.indicador-clique.pixel-art');
+
+      const projectItems = document.querySelectorAll('.project-list-item');
+      const winProjects = document.getElementById('win-projects');
+      const winDetalhes = document.getElementById('win-detalhes-projeto');
+      const btnCloseDetails = document.getElementById('close-details');
+
+      function fecharTodasJanelas() {
+        document.querySelectorAll('.window-pixel').forEach(win => {
+          win.classList.remove('open');
+        });
+      }
+
+      appIcons.forEach(icon => {
+        icon.addEventListener('click', (e) => {
+          e.preventDefault();
+          const appId = icon.getAttribute('data-app');
+          const windowToOpen = document.getElementById(`win-${appId}`);
+          
+          if (windowToOpen) {
+            fecharTodasJanelas();
+            windowToOpen.classList.add('open');
+
+            const iframeDentroDaJanela = windowToOpen.querySelector('iframe');
+            if (iframeDentroDaJanela) {
+              setTimeout(() => {
+                iframeDentroDaJanela.focus();
+                if(iframeDentroDaJanela.contentWindow) {
+                  iframeDentroDaJanela.contentWindow.focus();
+                }
+              }, 100);
+            }
+          }
+        });
+      });
+
+      closeButtons.forEach(button => {
+        if (button.id === 'close-details') return;
+
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const windowToClose = button.closest('.window-pixel');
+          if (windowToClose) {
+            windowToClose.classList.remove('open');
+            window.focus(); 
+          }
+        });
+      });
+
+      if (btnCloseDesktop && desktopScreen) {
+        btnCloseDesktop.addEventListener('click', (e) => {
+          e.stopPropagation();
+          fecharTodasJanelas(); 
+          desktopScreen.classList.remove('active'); 
+          window.focus(); 
+          
+          if (indicador) {
+            indicador.style.opacity = "1";
+            indicador.style.visibility = "visible";
+          }
+        });
+      }
+
+      projectItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetProject = item.getAttribute('data-open-project');
+          
+          if (targetProject === 'meu-projeto-avancado' && winDetalhes) {
+            if (winProjects) winProjects.classList.remove('open');
+            winDetalhes.classList.add('open');
+          } else if (targetProject === 'script-python') {
+            alert('Automation Scripts Project Details (Coming Soon!)');
+          }
+        });
+      });
+
+      if (btnCloseDetails && winDetalhes) {
+        btnCloseDetails.addEventListener('click', (e) => {
+          e.stopPropagation();
+          winDetalhes.classList.remove('open'); 
+          
+          if (winProjects) {
+            winProjects.classList.add('open');
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>

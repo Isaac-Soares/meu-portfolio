@@ -1,0 +1,518 @@
+/* =========================================
+   📊 GRID DE APLICATIVOS (ÍCONES)
+   ========================================= */
+.desktop-grid {
+  display: grid;
+  
+  /* 🖥️ Mantém as 2 colunas de tamanhos iguais */
+  grid-template-columns: repeat(2, 1fr); 
+  
+  /* Deixamos a largura ideal para duas colunas finas na esquerda */
+  max-width: 180px; 
+  
+  /* 👈 O SEGREDO: Remove o '0 auto' e força tudo para o canto esquerdo */
+  margin: 0; 
+  
+  /* Espaçamento entre os ícones */
+  gap: 25px 15px; 
+  padding: 20px;
+}
+
+.app-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+}
+
+.icon-box-pixel {
+  width: 50px;
+  height: 50px;
+  
+  /* 💥 REMOVIDO: Bordas, sombras e fundos antigos para a imagem limpa flutuar no wallpaper */
+  background: transparent; 
+  border: none;
+  box-shadow: none;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  transition: transform 0.1s;
+  overflow: hidden; 
+}
+
+/* 🔥 NOVA CLASSE: Ajusta e renderiza a imagem do ícone perfeitamente */
+.pixel-icon-img {
+  width: 100%;         
+  height: 100%;
+  object-fit: contain; 
+  
+  /* CRUCIAL PARA PIXEL ART: Mantém os pixels quadradinhos e nítidos */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ✨ EFEITO DE HOVER RETRO
+   O ícone ganha um destaque sutil e uma sombra estilizada ao passar o mouse */
+.app-icon:hover .pixel-icon-img {
+  transform: scale(1.1);
+  filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.6));
+}
+
+.app-icon p {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+}
+
+/* =========================================
+   🪟 SISTEMA DE JANELAS (RETRO OS)
+   ========================================= */
+.window-pixel {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 75%;
+  background: #1a1a1a;
+  border: 4px solid #fff;
+  box-shadow: 5px 5px 0px #000;
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+  
+  /* Inicialmente escondida */
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Classe ativada via JS para abrir a janela */
+.window-pixel.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+
+/* Barra superior da janela */
+.window-header {
+  background: #fff;
+  color: #000;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.close-window {
+  background: #ff4757;
+  border: 2px solid #000;
+  color: white;
+  cursor: pointer;
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+.window-body {
+  flex: 1;
+  padding: 15px;
+  overflow: auto;
+  color: #fff;
+}
+
+/* IFRAMES (Minecraft e VS Code) */
+.app-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #000;
+}
+
+/* =========================================
+   👤 ESTILO DO APP "SOBRE MIM"
+   ========================================= */
+.profile-container {
+  display: flex;
+  gap: 20px;
+  font-family: 'VT323', monospace;
+}
+
+.profile-img-pixel {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #fff;
+  image-rendering: pixelated;
+}
+
+/* =========================================
+   🌌 WALLPAPER TEMÁTICO DA ÁREA DE TRABALHO
+   ========================================= */
+.desktop {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  
+  /* Link para a sua imagem pixel art */
+  background-image: url('../assets/wallpapers/meu-wallpaper.jpg'); 
+  
+  /* Ajustes para preencher a tela do monitor perfeitamente */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Ativa o modo pixelado para imagens de baixa resolução não borrarem */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  
+  overflow: hidden;
+}
+
+/* Layout interno da janela de detalhes do projeto */
+.project-details-layout {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.project-info-sidebar {
+  flex: 1;
+  min-width: 200px;
+  background-color: #252526;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #3c3c3c;
+}
+
+.project-avatar-pixel {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.pixel-font-title {
+  font-family: 'VT323', monospace !important;
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.project-subtitle {
+  font-size: 13px;
+  color: #aaaaaa;
+  margin-bottom: 15px;
+}
+
+/* Badges de Tecnologias */
+.tech-stack-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tech-stack-badges .badge {
+  background-color: #37373d;
+  color: #007acc;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid #007acc;
+}
+
+/* Botões Estilo Profissional */
+.project-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-project {
+  display: block;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.github-btn {
+  background-color: #24292e;
+  color: #fff;
+  border: 1px solid #444;
+}
+.github-btn:hover { background-color: #2f363d; transform: scale(1.02); }
+
+.demo-btn {
+  background-color: #007acc;
+  color: #fff;
+}
+.demo-btn:hover { background-color: #0062a3; transform: scale(1.02); }
+
+/* Conteúdo de Texto da Direita */
+.project-main-description {
+  flex: 2;
+  min-width: 280px;
+}
+
+.project-main-description h3 {
+  font-size: 16px;
+  color: #007acc;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #3c3c3c;
+  padding-bottom: 4px;
+}
+
+.project-main-description p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #dddddd;
+}
+
+.project-main-description ul {
+  padding-left: 20px;
+  font-size: 14px;
+  color: #dddddd;
+  line-height: 1.6;
+}
+
+/* Container principal da lista de projetos */
+.project-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* ⬅️ Aumentei aqui! Ajuste esse valor (Ex: 12px, 16px, 20px) para dar mais ou menos espaço */
+  width: 100%;
+  user-select: none; /* 🚫 Impede o usuário de selecionar/destacar o texto com o mouse */
+}
+
+/* =========================================
+   JANELA SOBRE MIM (ABOUT ME)
+========================================= */
+
+/* Custom Scrollbar */
+.custom-scroll { scroll-behavior: smooth; } /* Ativa a rolagem suave do botão Voltar ao Topo */
+.custom-scroll::-webkit-scrollbar { width: 8px; }
+.custom-scroll::-webkit-scrollbar-track { background: #121212; }
+.custom-scroll::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+.custom-scroll::-webkit-scrollbar-thumb:hover { background: #4af626; }
+
+/* Layout Geral */
+.window-body {
+  background: #0f0f0f !important;
+  color: #ddd;
+  padding: 0 !important;
+}
+
+.profile-layout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; /* CRÍTICO: necessário para a foto deslizar (sticky) funcionar! */
+}
+
+/* Sidebar (Esquerda) com a Foto Grudada */
+.profile-sidebar {
+  flex: 1;
+  min-width: 250px;
+  background: #151515;
+  padding: 30px;
+  border-right: 1px solid #222;
+  text-align: center;
+  
+  /* A MÁGICA QUE FAZ A FOTO DESCER JUNTO: */
+  position: sticky;
+  top: 0;
+  height: max-content; /* Garante que a barra não estique até o fim */
+}
+
+/* --- MÁGICA DA FOTO TROCANDO AQUI --- */
+.photo-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 20px;
+  border: 3px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  background-color: #000;
+}
+
+.photo-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-top {
+  animation: fadeTrocaFoto 5s infinite alternate ease-in-out;
+}
+
+@keyframes fadeTrocaFoto {
+  0%, 30% { opacity: 1; }
+  70%, 100% { opacity: 0; }
+}
+/* ------------------------------------- */
+
+/* Textos da Sidebar */
+.main-stats h2 { margin: 0 0 5px; font-family: 'VT323', monospace; font-size: 2rem; color: #fff; }
+.tag-dev { display: inline-block; background: #4af626; color: #000; padding: 2px 8px; font-weight: bold; border-radius: 3px; margin-bottom: 15px; font-size: 0.85rem;}
+.quick-info p { margin: 5px 0; font-size: 0.85rem; color: #aaa; text-align: left; padding-left: 20px;}
+.quick-info span { color: #4af626; font-weight: bold; }
+
+/* Botão de Voltar ao Topo na Sidebar */
+.back-to-top-btn {
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  color: #4af626;
+  text-decoration: none;
+  background: #1a1a1a;
+  padding: 8px 12px;
+  border: 1px dashed #4af626;
+  border-radius: 4px;
+  transition: 0.2s;
+  display: block; /* Faz o botão esticar */
+}
+
+.back-to-top-btn:hover {
+  background: #4af626;
+  color: #000;
+  box-shadow: 0 0 10px rgba(74, 246, 38, 0.5);
+}
+
+/* Corpo Principal (Direita) */
+.profile-main {
+  flex: 2;
+  padding: 30px;
+  min-width: 320px;
+}
+
+.section-title {
+  font-family: 'VT323', monospace;
+  color: #4af626;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed #333;
+  padding-bottom: 5px;
+}
+
+.bio-section p { line-height: 1.6; margin-bottom: 25px; font-size: 0.95rem; }
+
+/* Categorias de Skills */
+.skill-category { margin-bottom: 15px; }
+.category-title { font-size: 0.85rem; color: #888; margin-bottom: 8px; text-transform: uppercase; font-weight: bold;}
+
+.badge-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Cores das Tecnologias */
+.badge { padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); }
+.badge.html { background: #E34F26; } 
+.badge.css { background: #1572B6; }  
+.badge.js { background: #F7DF1E; color: #000; } 
+.badge.python { background: #3776AB; } 
+.badge.java { background: #f89820; } 
+.badge.git { background: #F05032; }
+.badge.github { background: #181717; } 
+.badge.vscode { background: #007ACC; } 
+.badge.netlify { background: #00AD9F; }
+
+/* Lista de Soft Skills */
+.soft-skills-list {
+  padding-left: 20px;
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #ccc;
+}
+.soft-skills-list li { margin-bottom: 5px; }
+
+/* Links */
+.contact-links { display: flex; flex-direction: column; gap: 10px; }
+.link-item { color: #4af626; text-decoration: none; font-size: 0.95rem; transition: 0.2s; }
+.link-item:hover { text-decoration: underline; padding-left: 8px; color: #fff; }
+
+/* =========================================
+   SEÇÃO DE CERTIFICADOS
+========================================= */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #1a1a1a;
+  padding: 12px 15px;
+  border-left: 3px solid #4af626; 
+  border-radius: 4px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.cert-item:hover {
+  background: #222;
+  transform: translateX(5px); 
+}
+
+.cert-icon {
+  font-size: 1.8rem;
+}
+
+.cert-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Título Verde Clicável */
+a.cert-name {
+  font-weight: bold;
+  color: #4af626;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+a.cert-name:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+a.cert-name em {
+  color: #f7df1e; 
+  font-style: normal;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.cert-issuer {
+  font-size: 0.85rem;
+  color: #ddd;
+  margin: 2px 0 !important;
+}
+
+/* Datas e Duração (Ajustado para leitura perfeita) */
+.cert-meta {
+  font-size: 1rem; /* ⬅️ Aumentamos bem o tamanho (antes era 0.75rem) */
+  color: #aaa; /* ⬅️ Deixamos o cinza mais claro para dar contraste */
+  margin: 3px 0 0 0 !important; /* ⬅️ Um pequeno espaço para desgrudar de cima */
+  font-family: 'VT323', monospace; 
+  letter-spacing: 1px; /* ⬅️ Afastamos as letras um pouquinho para não embolar */
+}

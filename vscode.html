@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VS Code - Web Python</title>
+  <link rel="stylesheet" href="css/vscode.css">
+  <!-- Motor do Python na Web -->
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+  <!-- Colorizador de Código -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</head>
+<body>
+
+  <div class="vscode-app">
+    <div class="vscode-container">
+      <!-- 1. Barra Lateral de Ícones (Activity Bar) -->
+      <div class="activity-bar">
+        <div class="action-icon active" title="Explorer">📁</div>
+        <div class="action-icon" title="Search">🔍</div>
+        <div class="action-icon" title="Source Control">🌿</div>
+        <div class="action-icon" title="Settings" class="settings-icon">⚙️</div>
+      </div>
+
+      <!-- 2. Explorador de Arquivos (Sidebar) -->
+      <div class="sidebar">
+        <div class="sidebar-title">EXPLORER: PROJECT</div>
+        <div class="file-item active">🐍 main.py</div>
+      </div>
+
+      <!-- 3. Área Principal (Editor + Terminal) -->
+      <div class="main-editor">
+        <!-- Barra de Abas Superior Fixa -->
+        <div class="tabs-container">
+          <div class="tab active">
+            <span>🐍 main.py</span>
+          </div>
+          <!-- 💥 BOTÃO RUN FIXO NO TOPO DIREITO (IGUAL AO VS CODE REAL) -->
+          <button id="run-btn" title="Run Code (Executar Script)">▶ Run Code</button>
+        </div>
+
+        <!-- Área de Digitação do Código -->
+        <div class="editor-area">
+          <pre><code id="editor" class="language-python" contenteditable="true" spellcheck="false"># Write your Python code here!
+def greet(name):
+    return f"Hello, {name}! Welcome to Isaac Soares OS."
+
+user = "Recruiter"
+print(greet(user))
+
+for i in range(1, 4):
+    print(f"Testing line {i} in the terminal...")
+</code></pre>
+        </div>
+
+        <!-- Terminal / Console Inferior -->
+        <div class="terminal-area">
+          <div class="terminal-header">TERMINAL</div>
+          <div id="output" class="terminal-output">Loading Python interpreter...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 🔵 4. BARRA DE STATUS INFERIOR DO VS CODE -->
+    <div class="status-bar">
+      <div class="status-left">
+        <span class="status-item bg-blue">💻 main*</span>
+        <span class="status-item">🔀 main</span>
+      </div>
+      <div class="status-right">
+        <span class="status-item">UTF-8</span>
+        <span class="status-item">Python 3.11</span>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/vscode.js"></script>
+</body>
+</html>
