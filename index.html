@@ -468,37 +468,59 @@
         if (!(/iPhone|iPad|iPod/i.test(navigator.userAgent))) return;
 
         var startY = 0;
+        var startX = 0;
         var scrollEl = null;
+        var isScrolling = false;
 
         document.addEventListener('touchstart', function(e) {
-          // Acha o .window-body mais próximo do toque
+          startY = e.touches[0].clientY;
+          startX = e.touches[0].clientX;
+          isScrolling = false;
+          scrollEl = null;
+
           var el = e.target;
-          while (el && el !== document.body) {
+          while (el && el !== document.documentElement) {
             if (el.classList && el.classList.contains('window-body')) {
               scrollEl = el;
-              startY = e.touches[0].clientY;
-              return;
+              break;
             }
             el = el.parentElement;
           }
-          scrollEl = null;
+          if (!scrollEl) {
+            var winAberta = document.querySelector('.window-pixel.open');
+            if (winAberta) scrollEl = winAberta.querySelector('.window-body');
+          }
         }, { passive: true });
 
         document.addEventListener('touchmove', function(e) {
           if (!scrollEl) return;
 
           var currentY = e.touches[0].clientY;
-          var deltaY = startY - currentY;
-          startY = currentY;
+          var currentX = e.touches[0].clientX;
+          var deltaY = Math.abs(startY - currentY);
+          var deltaX = Math.abs(startX - currentX);
 
-          // Aplica o scroll manualmente
-          scrollEl.scrollTop += deltaY;
+          // Só ativa scroll se movimento for mais vertical que horizontal
+          if (!isScrolling && deltaY < 5 && deltaX < 5) return;
+          isScrolling = true;
 
-          // Impede que o evento vaze para fora
-          e.stopPropagation();
+          // Só intercepta se for gesto vertical
+          if (deltaY > deltaX) {
+            var dy = startY - currentY;
+            startY = currentY;
+            scrollEl.scrollTop += dy;
+            e.preventDefault();
+          }
         }, { passive: false });
 
-        // Garante altura fixa ao abrir janelas
+        document.addEventListener('touchend', function() {
+          // Só cancela o scroll, NÃO cancela o clique
+          if (!isScrolling) {
+            scrollEl = null;
+          }
+          isScrolling = false;
+        }, { passive: true });
+
         function fixarAltura() {
           var vh = window.innerHeight;
           document.querySelectorAll('.window-pixel').forEach(function(win) {
@@ -516,9 +538,7 @@
         }
 
         document.addEventListener('click', function(e) {
-          if (e.target.closest('.app-icon[data-app]')) {
-            setTimeout(fixarAltura, 100);
-          }
+          if (e.target.closest('.app-icon[data-app]')) setTimeout(fixarAltura, 100);
         });
 
         setTimeout(fixarAltura, 300);
