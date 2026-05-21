@@ -630,12 +630,13 @@ a.cert-name em {
   /* 🔥 3. O SCROLL LIVRE E ISOLADO 🔥 */
   .window-body {
     flex: 1 1 auto !important; 
-    height: 100% !important;
+    height: 0 !important;
     min-height: 0 !important; 
     overflow-y: scroll !important; /* Força a barra existir sempre */
     -webkit-overflow-scrolling: touch !important; 
-    overscroll-behavior: none !important; /* Impede que o seu arrasto vaze pro fundo */
-    padding: 20px 15px 40px 15px !important; 
+    overscroll-behavior: contain !important; /* Impede que o seu arrasto vaze pro fundo */
+    padding: 20px 15px 40px 15px !important;
+    touch-action: pan-y !important;
   }
 
   /* Empilhamento de informações */
