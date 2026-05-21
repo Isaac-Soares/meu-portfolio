@@ -574,20 +574,17 @@ a.cert-name em {
    ========================================= */
 @media (max-width: 768px) {
   
-  /* Ajuste geral do topo para fugir da barra do Chrome/Safari */
   .topbar {
     padding-top: 40px !important; 
     padding-right: 15px !important;
   }
 
-  /* Grid de Ícones na Área de Trabalho */
   .desktop-grid {
     max-width: 100% !important;
     gap: 30px 20px !important; 
     margin: 10px auto !important; 
   }
 
-  /* 1. TRAVA A ALTURA DA JANELA PRINCIPAL */
   .window-pixel {
     position: fixed !important; 
     top: 5% !important;
@@ -601,23 +598,22 @@ a.cert-name em {
     overflow: hidden !important; 
   }
 
-  /* 2. LIBERA O SCROLL APENAS NO CORPO DA JANELA (A PARTE PRETA) */
+  /* 🔥 A MÁGICA DO SCROLL ACONTECE AQUI 🔥 */
   .window-body {
-    flex: 1 !important; 
-    height: auto !important;
-    overflow-y: auto !important; /* 🔥 A BARRA DE ROLAGEM AQUI! */
-    -webkit-overflow-scrolling: touch !important; 
+    flex: 1 1 0% !important; 
+    min-height: 0 !important; /* Destrava o limite do flexbox */
+    height: 100% !important;
+    overflow-y: scroll !important; /* Força a barra de rolagem a aparecer */
+    -webkit-overflow-scrolling: touch !important; /* Devolve a física do celular */
     overscroll-behavior: contain !important; 
     padding: 20px 15px 40px 15px !important; 
   }
 
-  /* 3. EMPILHA O CONTEÚDO PARA NÃO VAZAR PARA OS LADOS */
   .profile-layout, .project-details-layout {
-    flex-direction: column !important; /* Coloca a foto em cima e o texto embaixo */
+    flex-direction: column !important; 
     display: block !important;
   }
 
-  /* Faz a sidebar (foto) e a área principal ocuparem 100% da largura do celular */
   .profile-sidebar, .profile-main, .project-info-sidebar, .project-main-description {
     width: 100% !important;
     min-width: 100% !important;
@@ -627,7 +623,6 @@ a.cert-name em {
     height: auto !important; 
   }
 
-  /* Adiciona uma linha divisória embaixo da foto no celular */
   .profile-sidebar {
     border-bottom: 2px solid #222 !important;
     padding: 0 0 20px 0 !important;

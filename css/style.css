@@ -119,34 +119,27 @@ body:has(#desktop-screen.active) .indicador-clique {
    ========================================= */
 @media (max-width: 768px) {
   
-  /* Trava o site inteiro para ele não rolar para baixo de jeito nenhum.
-     Isso força o scroll a funcionar APENAS dentro das janelas! */
+  /* Trava o site inteiro, mas LIBERA O TOQUE */
   html, body {
     overflow: hidden !important;
     height: 100vh !important;
     width: 100vw !important;
     position: fixed !important; 
-    touch-action: none !important; /* Desativa totalmente o "puxar para recarregar" e os zooms acidentais */
   }
 
-  /* Ajuste crucial do Canvas para focar no monitor/gabinete */
+  /* Ajuste crucial do Canvas */
   #canvas {
     width: 100vw !important;
     height: 100vh !important;
     display: block !important;
-    /* object-fit cover garante que não vai ter bordas pretas */
     object-fit: cover !important; 
-    
-    /* 🔥 O SEGREDO DO ENQUADRAMENTO 🔥
-       O primeiro valor (X%) move a câmera para a direita/esquerda.
-       Aumente para focar mais na direita (ex: 70%), diminua para a esquerda (ex: 20%). */
     object-position: 65% center !important; 
   }
 
- /* Reposiciona a seta "CLICK HERE" para acertar o monitor na tela do celular */
+ /* Reposiciona a seta "CLICK HERE" no PC/Tablets maiores */
   .indicador-clique {
-    top: 65% !important;  /* Empurra mais para baixo */
-    left: 65% !important; /* Empurra mais para a direita */
+    top: 65% !important;  
+    left: 65% !important; 
     transform: translate(-50%, -50%) scale(0.85) !important;
   }
 }
