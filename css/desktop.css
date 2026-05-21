@@ -83,8 +83,7 @@
   display: flex;
   flex-direction: column;
   z-index: 20;
-  will-change: transform, opacity;
-  contain: layout style paint;
+ 
   
   /* Inicialmente escondida */
   opacity: 0;
@@ -590,7 +589,9 @@ a.cert-name em {
     max-width: 100% !important;
     gap: 30px 20px !important; 
     margin: 10px auto !important; 
-    touch-action: none;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 5;
   }
 
   .window-pixel {
