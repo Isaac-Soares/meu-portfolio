@@ -462,6 +462,34 @@
         });
       }
     });
+
+    // FIX IOS WEBKIT SCROLL
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      function fixIOSWindowHeight() {
+        const vh = window.innerHeight;
+        document.querySelectorAll('.window-pixel').forEach(win => {
+          const headerHeight = win.querySelector('.window-header')?.offsetHeight || 40;
+          const bodyEl = win.querySelector('.window-body');
+          if (bodyEl) {
+            const bodyHeight = vh * 0.92 - headerHeight;
+            bodyEl.style.height = bodyHeight + 'px';
+            bodyEl.style.maxHeight = bodyHeight + 'px';
+            bodyEl.style.overflowY = 'scroll';
+            bodyEl.style.webkitOverflowScrolling = 'touch';
+          }
+        });
+      }
+
+      fixIOSWindowHeight();
+      window.addEventListener('resize', fixIOSWindowHeight);
+
+      // Roda de novo quando uma janela abre
+      document.querySelectorAll('.app-icon[data-app]').forEach(icon => {
+        icon.addEventListener('click', () => {
+          setTimeout(fixIOSWindowHeight, 50);
+        });
+      });
+    }
   </script>
 </body>
 </html>
