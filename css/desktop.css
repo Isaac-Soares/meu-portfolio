@@ -654,10 +654,12 @@ a.cert-name em {
   }
 
   .profile-sidebar {
-    border-bottom: 2px solid #222 !important;
-    padding: 0 0 20px 0 !important;
-    margin-bottom: 20px !important;
-    top: unset !important;
+  border-bottom: 2px solid #222 !important;
+  padding: 0 0 20px 0 !important;
+  margin-bottom: 20px !important;
+  top: unset !important;
+  position: relative !important;  /* ← ESTE É O FIX PRINCIPAL */
+  height: auto !important;
   }
 
   .profile-main {

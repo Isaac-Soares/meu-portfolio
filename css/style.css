@@ -30,24 +30,18 @@ canvas {
 #desktop-screen {
   position: fixed;
   inset: 0;
-  overflow: clip;
+  overflow: hidden; /* era: clip */
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
-  
   opacity: 0;
   pointer-events: none;
-  visibility: hidden; /* Evita fantasmas de cliques invisíveis */
-  
+  visibility: hidden;
   transform: scale(1.1);
-  transition:
-    opacity 0.8s ease,
-    visibility 0.8s ease,
-    transform 0.8s ease;
-    
-  z-index: 999; /* Fica acima do Canvas 2D */
+  transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+  z-index: 999;
 }
 
 #desktop-screen.active {
@@ -153,5 +147,6 @@ body:has(#desktop-screen.active) .indicador-clique {
   #desktop-screen {
     background: transparent !important;
     backdrop-filter: none !important;
+    overflow: hidden !important;
   }
 }
