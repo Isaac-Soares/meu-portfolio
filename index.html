@@ -464,32 +464,43 @@
     });
 
     // FIX IOS WEBKIT SCROLL
-    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-      function fixIOSWindowHeight() {
+    (function() {
+      if (!(/iPhone|iPad|iPod/i.test(navigator.userAgent))) return;
+
+      function aplicarAlturaFixa() {
         const vh = window.innerHeight;
-        document.querySelectorAll('.window-pixel').forEach(win => {
-          const headerHeight = win.querySelector('.window-header')?.offsetHeight || 40;
-          const bodyEl = win.querySelector('.window-body');
-          if (bodyEl) {
-            const bodyHeight = vh * 0.92 - headerHeight;
-            bodyEl.style.height = bodyHeight + 'px';
-            bodyEl.style.maxHeight = bodyHeight + 'px';
-            bodyEl.style.overflowY = 'scroll';
-            bodyEl.style.webkitOverflowScrolling = 'touch';
-          }
+        document.querySelectorAll('.window-pixel').forEach(function(win) {
+          const header = win.querySelector('.window-header');
+          const body = win.querySelector('.window-body');
+          if (!body) return;
+
+          const headerH = header ? header.getBoundingClientRect().height : 44;
+          const alturaBody = vh - headerH - Math.round(vh * 0.08);
+
+          body.style.cssText = [
+            'height:' + alturaBody + 'px',
+            'max-height:' + alturaBody + 'px',
+            'min-height:0',
+            'overflow-y:scroll',
+            '-webkit-overflow-scrolling:touch',
+            'overscroll-behavior:none',
+            'touch-action:pan-y',
+            'flex:none',
+            'display:block'
+          ].join(';');
         });
       }
 
-      fixIOSWindowHeight();
-      window.addEventListener('resize', fixIOSWindowHeight);
-
-      // Roda de novo quando uma janela abre
-      document.querySelectorAll('.app-icon[data-app]').forEach(icon => {
-        icon.addEventListener('click', () => {
-          setTimeout(fixIOSWindowHeight, 50);
-        });
+      // Roda ao abrir qualquer janela
+      document.addEventListener('click', function(e) {
+        const icon = e.target.closest('.app-icon[data-app]');
+        if (icon) setTimeout(aplicarAlturaFixa, 80);
       });
-    }
+
+      window.addEventListener('resize', aplicarAlturaFixa);
+      document.addEventListener('DOMContentLoaded', aplicarAlturaFixa);
+      setTimeout(aplicarAlturaFixa, 300);
+    })();
   </script>
 </body>
 </html>

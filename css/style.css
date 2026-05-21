@@ -30,12 +30,12 @@ canvas {
 #desktop-screen {
   position: fixed;
   inset: 0;
-  overflow: hidden; /* era: clip */
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(12px);
+  background: transparent;        /* ← ERA rgba(0,0,0,0.7) */
+  backdrop-filter: none;          /* ← ERA blur(12px) */
   opacity: 0;
   pointer-events: none;
   visibility: hidden;
