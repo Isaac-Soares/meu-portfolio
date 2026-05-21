@@ -580,6 +580,25 @@ a.cert-name em {
    ========================================= */
 @media (max-width: 768px) {
   
+  /* 🔥 1. A CAMISA DE FORÇA DO FUNDO 🔥 
+     Isso prega o site inteiro na tela e proíbe o celular de mover o fundo */
+  html, body {
+    position: fixed !important; 
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+    overscroll-behavior: none !important; /* Mata o efeito elástico do iPhone/Android */
+  }
+
+  #desktop-screen, .desktop {
+    position: fixed !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
   .topbar {
     padding-top: 40px !important; 
     padding-right: 15px !important;
@@ -589,14 +608,14 @@ a.cert-name em {
     max-width: 100% !important;
     gap: 30px 20px !important; 
     margin: 10px auto !important; 
-    touch-action: manipulation;
     position: relative;
     z-index: 5;
   }
 
+  /* 🔥 2. A JANELA BLINDADA 🔥 */
   .window-pixel {
     position: fixed !important; 
-    top: 5% !important;
+    top: 4% !important;
     left: 2.5% !important; 
     width: 95% !important;
     height: 92dvh !important; 
@@ -605,22 +624,21 @@ a.cert-name em {
     display: flex !important;
     flex-direction: column !important; 
     overflow: hidden !important; 
-    /* 🔥 pointer-events: auto REMOVIDO! O JS já cuida disso com a classe .open 🔥 */
     contain: layout paint;
-    will-change: transform, opacity;
   }
 
+  /* 🔥 3. O SCROLL LIVRE E ISOLADO 🔥 */
   .window-body {
-    flex: 1 1 0% !important; 
+    flex: 1 1 auto !important; 
+    height: 100% !important;
     min-height: 0 !important; 
-    overflow-y: auto !important; 
+    overflow-y: scroll !important; /* Força a barra existir sempre */
     -webkit-overflow-scrolling: touch !important; 
-    overscroll-behavior: contain !important; 
+    overscroll-behavior: none !important; /* Impede que o seu arrasto vaze pro fundo */
     padding: 20px 15px 40px 15px !important; 
-    scrollbar-gutter: stable;
-    touch-action: pan-y !important; /* Movido para cá */
   }
 
+  /* Empilhamento de informações */
   .profile-layout, .project-details-layout {
     flex-direction: column !important; 
     display: block !important;
@@ -639,7 +657,7 @@ a.cert-name em {
     border-bottom: 2px solid #222 !important;
     padding: 0 0 20px 0 !important;
     margin-bottom: 20px !important;
-    top: unset !important; /* Movido para cá */
+    top: unset !important;
   }
 
   .profile-main {
@@ -649,43 +667,4 @@ a.cert-name em {
   .indicador-clique {
     display: none !important;
   }
-
-  html,
-  body,
-  #desktop-screen,
-  .desktop {
-    overflow: hidden !important;
-    height: 100dvh !important;
-  }
-}
-
-/* =========================================
-   🔧 REGRAS GERAIS DE ESTRUTURA
-   ========================================= */
-html,
-body {
-  overscroll-behavior: none;
-  width: 100%;
-  height: 100%;
-}
-
-body {
-  overflow: hidden;
-  width: 100%;
-  min-height: 100dvh;
-  margin: 0;
-}
-
-#desktop-screen {
-  width: 100%;
-  min-height: 100dvh;
-}
-
-.indicador-clique {
-  z-index: 99999 !important;
-}
-
-canvas {
-  position: relative;
-  z-index: 1;
 }
