@@ -127,9 +127,9 @@ body {
   }
 
   .screen {
-    overflow-x: hidden;
-    overflow-y: auto;
     overflow: hidden !important;
+    height: 100% !important;
+    border: none !important;
   }
 
   /* 🔥 NOVO: Reduz drasticamente o padding no celular para os ícones respirarem */
