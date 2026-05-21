@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>IsaacOS Mobile</title>
+  <link rel="icon" type="image/png" href="assets/icons/isaac.exe.png">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #4af626;
+      --dark: #0a0a0a;
+      --card: #111111;
+      --border: #1e1e1e;
+      --text: #cccccc;
+      --dim: #666666;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      background: var(--dark);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* SCANLINES */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* TOPBAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: #0d0d0d;
+      border-bottom: 1px solid var(--green);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 100;
+    }
+
+    .topbar-title {
+      font-family: 'VT323', monospace;
+      font-size: 1.4rem;
+      color: var(--green);
+      letter-spacing: 2px;
+    }
+
+    .topbar-status {
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .blink {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* HERO */
+    .hero {
+      padding: 24px 16px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-photo {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      margin-bottom: 16px;
+      border: 2px solid var(--green);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(74,246,38,0.2);
+    }
+
+    .hero-photo img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      top: 0; left: 0;
+    }
+
+    .img-top {
+      animation: fadeTroca 5s infinite alternate ease-in-out;
+    }
+
+    @keyframes fadeTroca {
+      0%, 30% { opacity: 1; }
+      70%, 100% { opacity: 0; }
+    }
+
+    .hero-name {
+      font-family: 'VT323', monospace;
+      font-size: 2.2rem;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--green);
+      color: #000;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 8px;
+      margin-bottom: 12px;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .hero-meta span { color: var(--green); }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--green);
+      text-decoration: none;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 12px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-btn:active {
+      background: #1a1a1a;
+      border-color: var(--green);
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 20px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed #222;
+    }
+
+    /* BIO */
+    .bio-text {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* SKILLS */
+    .skill-group {
+      margin-bottom: 14px;
+    }
+
+    .skill-group-label {
+      font-size: 11px;
+      color: var(--dim);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      padding: 3px 8px;
+      font-size: 11px;
+      font-weight: bold;
+      font-family: 'Share Tech Mono', monospace;
+      border-radius: 3px;
+    }
+
+    .badge-html { background: #E34F26; color: #fff; }
+    .badge-css { background: #1572B6; color: #fff; }
+    .badge-js { background: #F7DF1E; color: #000; }
+    .badge-python { background: #3776AB; color: #fff; }
+    .badge-java { background: #f89820; color: #fff; }
+    .badge-git { background: #F05032; color: #fff; }
+    .badge-github { background: #333; color: #fff; border: 1px solid #555; }
+    .badge-vscode { background: #007ACC; color: #fff; }
+    .badge-netlify { background: #00AD9F; color: #fff; }
+
+    .soft-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .soft-list li {
+      font-size: 12px;
+      color: var(--text);
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .soft-list li::before {
+      content: '>';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+
+    /* PROJECTS */
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .project-emoji { font-size: 1.6rem; }
+
+    .project-name {
+      font-family: 'VT323', monospace;
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    .project-type {
+      font-size: 10px;
+      color: #000;
+      background: var(--green);
+      padding: 1px 6px;
+      margin-left: auto;
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .stack-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+      font-family: 'Share Tech Mono', monospace;
+      font-weight: bold;
+      border-radius: 2px;
+      color: #000;
+    }
+
+    .project-desc {
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .project-features {
+      list-style: none;
+      margin-bottom: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .project-features li {
+      font-size: 12px;
+      color: var(--text);
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .project-features li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+    }
+
+    .project-challenge {
+      font-size: 11px;
+      color: var(--dim);
+      font-style: italic;
+      border-left: 2px solid #333;
+      padding-left: 10px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .project-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-github, .btn-demo {
+      flex: 1;
+      display: block;
+      text-align: center;
+      padding: 8px;
+      font-size: 12px;
+      font-family: 'Share Tech Mono', monospace;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-github {
+      background: #24292e;
+      color: #fff;
+      border: 1px solid #444;
+    }
+
+    .btn-demo {
+      background: #007acc;
+      color: #fff;
+    }
+
+    /* CERTIFICATIONS */
+    .cert-item {
+      display: flex;
+      gap: 10px;
+      padding: 12px;
+      background: var(--card);
+      border-left: 2px solid var(--green);
+      margin-bottom: 8px;
+    }
+
+    .cert-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+    .cert-name {
+      font-size: 12px;
+      color: var(--green);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+
+    .cert-name:active { color: #fff; }
+
+    .cert-meta {
+      font-size: 11px;
+      color: var(--dim);
+      font-family: 'VT323', monospace;
+      letter-spacing: 1px;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 20px 16px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--dim);
+      font-family: 'VT323', monospace;
+      font-size: 1rem;
+    }
+
+    .footer a {
+      color: var(--green);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <span class="topbar-title">IsaacOS <span class="blink">_</span></span>
+    <span class="topbar-status">MOBILE v1.0</span>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-photo">
+      <img src="assets/icons/I.jpeg" alt="Isaac" class="img-bottom">
+      <img src="assets/icons/I_2D.jpeg" alt="Isaac 2D" class="img-top">
+    </div>
+    <div class="hero-name" id="hero-name"></div>
+    <div class="hero-tag" id="hero-tag"></div>
+    <div class="hero-meta" id="hero-meta"></div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-grid" id="contact-grid"></div>
+
+  <!-- BIO -->
+  <div class="section">
+    <div class="section-label">> WHO_AM_I</div>
+    <p class="bio-text" id="bio-text"></p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-label">> TECH_STACK</div>
+    <div id="skills-container"></div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-label">> PROJECTS</div>
+    <div id="projects-container"></div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-label">> CERTIFICATIONS</div>
+    <div id="certs-container"></div>
+  </div>
+
+  <div class="footer">
+    <p>[ <a href="index.html">🖥️ VIEW DESKTOP VERSION</a> ]</p>
+    <p style="margin-top:8px;">© 2026 Isaac Soares</p>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script>
+    const d = portfolioData;
+
+    // HERO
+    document.getElementById('hero-name').textContent = d.name;
+    document.getElementById('hero-tag').textContent = d.title;
+    document.getElementById('hero-meta').innerHTML = `
+      <div><span>AGE:</span> ${d.age}y</div>
+      <div><span>LOC:</span> ${d.location}</div>
+      <div><span>UNI:</span> ${d.university}</div>
+    `;
+
+    // CONTACT
+    document.getElementById('contact-grid').innerHTML = d.contact.map(c => `
+      <a href="${c.href}" target="_blank" class="contact-btn">
+        <span>${c.icon}</span> ${c.label}
+      </a>
+    `).join('');
+
+    // BIO
+    document.getElementById('bio-text').textContent = d.bio;
+
+    // SKILLS
+    const badgeMap = {
+      'HTML5': 'html', 'CSS3': 'css', 'JavaScript': 'js',
+      'Python': 'python', 'Java': 'java', 'Git': 'git',
+      'GitHub': 'github', 'VS Code': 'vscode', 'Netlify': 'netlify'
+    };
+
+    document.getElementById('skills-container').innerHTML = `
+      <div class="skill-group">
+        <div class="skill-group-label">Languages & Frameworks</div>
+        <div class="badge-row">
+          ${d.skills.languages.map(s => `<span class="badge badge-${badgeMap[s] || 'github'}">${s}</span>`).join('')}
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Tools & Environment</div>
+        <div class="badge-row">
+          ${d.skills.tools.map(s => `<span class="badge badge-${badgeMap[s] || 'github'}">${s}</span>`).join('')}
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Soft Skills</div>
+        <ul class="soft-list">
+          ${d.skills.soft.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+      </div>
+    `;
+
+    // PROJECTS
+    document.getElementById('projects-container').innerHTML = d.projects.map(p => `
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-emoji">${p.emoji}</span>
+          <span class="project-name">${p.name}</span>
+          <span class="project-type">${p.type}</span>
+        </div>
+        <div class="project-stack">
+          ${p.stack.map(s => `<span class="stack-badge" style="background:${s.color}">${s.label}</span>`).join('')}
+        </div>
+        <p class="project-desc">${p.about}</p>
+        ${p.features.length ? `
+          <ul class="project-features">
+            ${p.features.map(f => `<li>${f}</li>`).join('')}
+          </ul>
+        ` : ''}
+        ${p.challenge ? `<p class="project-challenge">"${p.challenge}"</p>` : ''}
+        ${p.github || p.demo ? `
+          <div class="project-btns">
+            ${p.github ? `<a href="${p.github}" target="_blank" class="btn-github">🐙 GitHub</a>` : ''}
+            ${p.demo ? `<a href="${p.demo}" target="_blank" class="btn-demo">⚡ Live Demo</a>` : ''}
+          </div>
+        ` : ''}
+      </div>
+    `).join('');
+
+    // CERTIFICATIONS
+    document.getElementById('certs-container').innerHTML = d.certifications.map(c => `
+      <div class="cert-item">
+        <span class="cert-icon">${c.inProgress ? '🎓' : '📜'}</span>
+        <div>
+          ${c.link
+            ? `<a href="${c.link}" target="_blank" class="cert-name">${c.name}</a>`
+            : `<span class="cert-name" style="color:#888">${c.name}</span>`
+          }
+          <div class="cert-meta">${c.issuer} • ${c.date} • ${c.duration}</div>
+        </div>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

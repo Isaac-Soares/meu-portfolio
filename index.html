@@ -2,6 +2,11 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
+  <script>
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    window.location.replace('mobile.html');
+  }
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IsaacOS</title>
   <link rel="icon" type="image/png" href="assets/icons/isaac.exe.png">
@@ -463,87 +468,6 @@
       }
     });
 
-    // FIX IOS WEBKIT SCROLL - SOLUÇÃO DEFINITIVA
-      (function() {
-        if (!(/iPhone|iPad|iPod/i.test(navigator.userAgent))) return;
-
-        var startY = 0;
-        var startX = 0;
-        var scrollEl = null;
-        var isScrolling = false;
-
-        document.addEventListener('touchstart', function(e) {
-          startY = e.touches[0].clientY;
-          startX = e.touches[0].clientX;
-          isScrolling = false;
-          scrollEl = null;
-
-          var el = e.target;
-          while (el && el !== document.documentElement) {
-            if (el.classList && el.classList.contains('window-body')) {
-              scrollEl = el;
-              break;
-            }
-            el = el.parentElement;
-          }
-          if (!scrollEl) {
-            var winAberta = document.querySelector('.window-pixel.open');
-            if (winAberta) scrollEl = winAberta.querySelector('.window-body');
-          }
-        }, { passive: true });
-
-        document.addEventListener('touchmove', function(e) {
-          if (!scrollEl) return;
-
-          var currentY = e.touches[0].clientY;
-          var currentX = e.touches[0].clientX;
-          var deltaY = Math.abs(startY - currentY);
-          var deltaX = Math.abs(startX - currentX);
-
-          // Só ativa scroll se movimento for mais vertical que horizontal
-          if (!isScrolling && deltaY < 5 && deltaX < 5) return;
-          isScrolling = true;
-
-          // Só intercepta se for gesto vertical
-          if (deltaY > deltaX) {
-            var dy = startY - currentY;
-            startY = currentY;
-            scrollEl.scrollTop += dy;
-            e.preventDefault();
-          }
-        }, { passive: false });
-
-        document.addEventListener('touchend', function() {
-          // Só cancela o scroll, NÃO cancela o clique
-          if (!isScrolling) {
-            scrollEl = null;
-          }
-          isScrolling = false;
-        }, { passive: true });
-
-        function fixarAltura() {
-          var vh = window.innerHeight;
-          document.querySelectorAll('.window-pixel').forEach(function(win) {
-            var header = win.querySelector('.window-header');
-            var body = win.querySelector('.window-body');
-            if (!body) return;
-            var headerH = header ? header.offsetHeight : 44;
-            var h = vh - headerH - Math.round(vh * 0.08);
-            body.style.height = h + 'px';
-            body.style.maxHeight = h + 'px';
-            body.style.overflowY = 'scroll';
-            body.style.display = 'block';
-            body.style.flex = 'none';
-          });
-        }
-
-        document.addEventListener('click', function(e) {
-          if (e.target.closest('.app-icon[data-app]')) setTimeout(fixarAltura, 100);
-        });
-
-        setTimeout(fixarAltura, 300);
-        window.addEventListener('resize', fixarAltura);
-      })();
   </script>
 </body>
 </html>

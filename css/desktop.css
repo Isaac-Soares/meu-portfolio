@@ -666,28 +666,3 @@ a.cert-name em {
   }
 }
 
-.profile-layout,
-.profile-sidebar,
-.profile-main,
-.project-details-layout,
-.project-info-sidebar,
-.project-main-description {
-  touch-action: pan-y !important;
-  pointer-events: auto !important;
-}
-
-.profile-sidebar * {
-  touch-action: pan-y !important;
-}
-
-.photo-container,
-.main-stats,
-.contact-links,
-.sidebar-action {
-  pointer-events: none !important;
-}
-
-.link-item,
-.back-to-top-btn {
-  pointer-events: auto !important;
-}
