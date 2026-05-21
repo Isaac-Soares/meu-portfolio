@@ -4,10 +4,12 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   width: 100%;
-  height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
+  overscroll-behavior: none;
   background: black;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -16,6 +18,9 @@ canvas {
   width: 100%;
   height: 100%;
   display: block;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* =========================
@@ -25,6 +30,7 @@ canvas {
 #desktop-screen {
   position: fixed;
   inset: 0;
+  overflow: clip;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,16 +127,15 @@ body:has(#desktop-screen.active) .indicador-clique {
   
   /* Trava o site inteiro, mas LIBERA O TOQUE */
   html, body {
-    overflow: hidden !important;
-    height: 100vh !important;
-    width: 100vw !important;
-    position: fixed !important; 
+  overflow: hidden !important;
+  height: 100dvh !important;
+  width: 100% !important;
   }
 
   /* Ajuste crucial do Canvas */
   #canvas {
-    width: 100vw !important;
-    height: 100vh !important;
+    width: 100% !important;
+    height: 100dvh !important;
     display: block !important;
     object-fit: cover !important; 
     object-position: 65% center !important; 
@@ -141,5 +146,11 @@ body:has(#desktop-screen.active) .indicador-clique {
     top: 65% !important;  
     left: 65% !important; 
     transform: translate(-50%, -50%) scale(0.85) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #desktop-screen {
+    backdrop-filter: blur(4px);
   }
 }
