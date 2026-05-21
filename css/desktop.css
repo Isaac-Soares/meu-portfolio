@@ -614,30 +614,29 @@ a.cert-name em {
 
   /* 🔥 2. A JANELA BLINDADA 🔥 */
   .window-pixel {
-    position: fixed !important; 
-    top: 4% !important;
-    left: 2.5% !important; 
-    width: 95% !important;
-    height: 92dvh !important; 
-    max-height: 92dvh !important;
-    z-index: 9999 !important; 
-    display: flex !important;
-    flex-direction: column !important; 
-    overflow: hidden !important; 
-    contain: layout paint;
-  }
+  position: fixed !important;
+  top: 4% !important;
+  left: 2.5% !important;
+  width: 95% !important;
+  height: 92dvh !important;
+  max-height: 92dvh !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
 
   /* 🔥 3. O SCROLL LIVRE E ISOLADO 🔥 */
   .window-body {
-    flex: 1 1 auto !important; 
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
     height: 0 !important;
-    min-height: 0 !important; 
-    overflow-y: scroll !important; /* Força a barra existir sempre */
-    -webkit-overflow-scrolling: touch !important; 
-    overscroll-behavior: contain !important; /* Impede que o seu arrasto vaze pro fundo */
-    padding: 20px 15px 40px 15px !important;
+    overflow-y: scroll !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
     touch-action: pan-y !important;
-  }
+    padding: 20px 15px 40px 15px !important;
+}
 
   /* Empilhamento de informações */
   .profile-layout, .project-details-layout {
