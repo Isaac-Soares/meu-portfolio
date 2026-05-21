@@ -665,3 +665,13 @@ a.cert-name em {
     display: none !important;
   }
 }
+
+.profile-layout,
+.profile-sidebar,
+.profile-main,
+.project-details-layout,
+.project-info-sidebar,
+.project-main-description {
+  touch-action: pan-y !important;
+  pointer-events: auto !important;
+}
