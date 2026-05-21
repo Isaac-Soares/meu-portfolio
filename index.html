@@ -471,34 +471,33 @@
         var scrollEl = null;
 
         document.addEventListener('touchstart', function(e) {
-          // Acha o .window-body mais próximo do toque
+          // Busca o .window-body mais próximo — sobe TODA a árvore sem parar
           var el = e.target;
-          while (el && el !== document.body) {
+          scrollEl = null;
+          while (el && el !== document.documentElement) {
             if (el.classList && el.classList.contains('window-body')) {
               scrollEl = el;
-              startY = e.touches[0].clientY;
-              return;
+              break;
             }
             el = el.parentElement;
           }
-          scrollEl = null;
+          // Se não achou pelo caminho normal, tenta pelo .window-pixel aberto
+          if (!scrollEl) {
+            var winAberta = document.querySelector('.window-pixel.open');
+            if (winAberta) scrollEl = winAberta.querySelector('.window-body');
+          }
+          if (scrollEl) startY = e.touches[0].clientY;
         }, { passive: true });
 
         document.addEventListener('touchmove', function(e) {
           if (!scrollEl) return;
-
           var currentY = e.touches[0].clientY;
           var deltaY = startY - currentY;
           startY = currentY;
-
-          // Aplica o scroll manualmente
           scrollEl.scrollTop += deltaY;
-
-          // Impede que o evento vaze para fora
-          e.stopPropagation();
+          e.preventDefault();
         }, { passive: false });
 
-        // Garante altura fixa ao abrir janelas
         function fixarAltura() {
           var vh = window.innerHeight;
           document.querySelectorAll('.window-pixel').forEach(function(win) {
@@ -516,9 +515,7 @@
         }
 
         document.addEventListener('click', function(e) {
-          if (e.target.closest('.app-icon[data-app]')) {
-            setTimeout(fixarAltura, 100);
-          }
+          if (e.target.closest('.app-icon[data-app]')) setTimeout(fixarAltura, 100);
         });
 
         setTimeout(fixarAltura, 300);
