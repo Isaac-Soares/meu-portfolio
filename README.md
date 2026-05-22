@@ -9,8 +9,8 @@ Welcome to my portfolio repository! This project is designed as an interactive, 
 ---
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Isaac-Soares&show_icons=true&theme=radical&count_private=true" alt="GitHub Stats"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Isaac-Soares&layout=compact&theme=radical" alt="Top Languages"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Isaac-Soares&show_icons=true&bg_color=0a0a0a&text_color=cccccc&title_color=4af626&icon_color=4af626&hide_border=true&hide=contribs,prs,issues" alt="GitHub Stats"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Isaac-Soares&layout=compact&bg_color=0a0a0a&text_color=cccccc&title_color=4af626&hide_border=true" alt="Top Languages"/>
 </div>
 
 <br>
