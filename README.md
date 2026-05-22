@@ -8,10 +8,11 @@ Welcome to my portfolio repository! This project is designed as an interactive, 
 
 ---
 
-<div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Isaac-Soares&show_icons=true&theme=radical&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Isaac-Soares&layout=compact&theme=radical"/>
-</div>
+### 📊 GitHub Statistics
+
+[![](https://github-readme-stats.vercel.app/api?username=Isaac-Soares&show_icons=true&bg_color=0a0a0a&text_color=cccccc&title_color=4af626&icon_color=4af626&hide_border=true&hide=contribs,prs,issues)](https://github.com/Isaac-Soares)
+
+[![](https://github-readme-stats.vercel.app/api/top-langs/?username=Isaac-Soares&layout=compact&bg_color=0a0a0a&text_color=cccccc&title_color=4af626&hide_border=true)](https://github.com/Isaac-Soares)
 
 <br>
 
