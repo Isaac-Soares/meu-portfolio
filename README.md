@@ -16,7 +16,7 @@ Welcome to my portfolio repository! This project is designed as an interactive, 
 <br>
 
 ### 💻 System Info
-```yaml
+yaml
 isaac@os:~$ whoami
 -------------------
 OS: IsaacOS v1.0
