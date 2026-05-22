@@ -1,15 +1,6 @@
 <div align="center">
 
-```
-██╗███████╗ █████╗  █████╗  ██████╗ ██████╗ ███████╗
-██║██╔════╝██╔══██╗██╔══██╗██╔════╝██╔═══██╗██╔════╝
-██║███████╗███████║███████║██║     ██║   ██║███████╗
-██║╚════██║██╔══██║██╔══██║██║     ██║   ██║╚════██║
-██║███████║██║  ██║██║  ██║╚██████╗╚██████╔╝███████║
-╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
-```
-
-<img src="https://readme-typing-svg.demolab.com?font=VT323&size=28&pause=1000&color=4AF626&center=true&vCenter=true&width=600&lines=Computer+Science+%40+CEUB;Full+Stack+Developer+in+progress;Building+IsaacOS+from+scratch;Clean+code.+Real+solutions." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=VT323&size=32&pause=1000&color=4AF626&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Isaac+%F0%9F%91%8B;Computer+Science+%40+CEUB;Building+IsaacOS+from+scratch;Always+learning%2C+always+shipping." alt="Typing SVG" />
 
 [![Portfolio](https://img.shields.io/badge/🖥️_Live_Portfolio-4AF626?style=for-the-badge&logoColor=black)](https://isaac-soares.github.io/meu-portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/isaac-faria-soares/)
@@ -60,6 +51,37 @@ My goal is to become a high-performance Full Stack Developer — someone who und
 
 ---
 
+## `> CURRENTLY_LEARNING`
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=16&pause=1500&color=4AF626&center=true&vCenter=true&width=600&lines=📚+Object-Oriented+Java+%40+Alura;🐍+Advanced+Python+%7C+OOP+%26+APIs;🌐+Deepening+JavaScript+fundamentals;🔧+Git+%26+GitHub+best+practices;🏗️+Clean+architecture+patterns" alt="Currently Learning" />
+
+</div>
+
+---
+
+## `> STATUS`
+
+<div align="center">
+
+```
+╔══════════════════════════════════════════════════════╗
+║           ISAACOS :: DEVELOPER STATUS v1.0           ║
+╠══════════════════════════════════════════════════════╣
+║  ● SYSTEM        ONLINE                              ║
+║  ● AVAILABILITY  OPEN TO OPPORTUNITIES               ║
+║  ● CURRENT TASK  Building & Learning Daily           ║
+║  ● LOCATION      Brasília, Brazil 🇧🇷                ║
+║  ● MOOD          git commit -m "another day another  ║
+║                  feature" 🚀                         ║
+╚══════════════════════════════════════════════════════╝
+```
+
+</div>
+
+---
+
 ## `> PROJECTS`
 
 ### 🖥️ IsaacOS — Interactive Developer Portfolio
@@ -82,6 +104,22 @@ Architecture highlights:
 [![Netlify](https://img.shields.io/badge/Netlify_Mirror-00AD9F?style=flat-square&logo=netlify&logoColor=white)](https://silly-eclair-f4a6bd.netlify.app)
 
 ---
+
+### 🍽️ Château Noir — Restaurant Web App
+
+Institutional website for a fictional French restaurant, focused on responsiveness and interactive UX.
+
+```
+Key engineering decisions:
+  ├── Centralized JS state for dynamic shopping cart (no framework)
+  ├── Optimized DOM manipulation for instant UI updates
+  └── Bootstrap 5 + custom CSS for responsive layout
+```
+
+**Stack:** `HTML5` `CSS3` `JavaScript` `Bootstrap 5`
+
+[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Isaac-Soares/chateau-Noir)
+[![Live Demo](https://img.shields.io/badge/⚡_Live_Demo-007ACC?style=flat-square&logoColor=white)](https://693303de9520bf00c3f5631f--golden-kitten-1d99c8.netlify.app)
 
 ---
 
@@ -112,6 +150,42 @@ Architecture highlights:
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=Isaac-Soares&bg_color=0a0a0a&color=4af626&line=4af626&point=ffffff&area=true&hide_border=true" />
 
 </div>
+
+---
+
+## `> SNAKE`
+
+<div align="center">
+
+> *My contributions, but make it a game 🐍*
+
+![Snake animation](https://github.com/Isaac-Soares/Isaac-Soares/blob/output/github-contribution-grid-snake-dark.svg)
+
+</div>
+
+> ⚙️ **To activate the snake:** create a folder `.github/workflows/` in your profile repo (`Isaac-Soares/Isaac-Soares`) and add this file as `snake.yml`:
+>
+> ```yaml
+> name: Generate Snake
+> on:
+>   schedule:
+>     - cron: "0 */12 * * *"
+>   workflow_dispatch:
+> jobs:
+>   generate:
+>     runs-on: ubuntu-latest
+>     steps:
+>       - uses: Platane/snk/svg-only@v3
+>         with:
+>           github_user_name: Isaac-Soares
+>           outputs: dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+>       - uses: crazy-max/ghaction-github-pages@v3
+>         with:
+>           target_branch: output
+>           build_dir: dist
+>         env:
+>           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+> ```
 
 ---
 
