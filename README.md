@@ -83,22 +83,6 @@ Architecture highlights:
 
 ---
 
-### 🍽️ Château Noir — Restaurant Web App
-
-Institutional website for a fictional French restaurant, focused on responsiveness and interactive UX.
-
-```
-Key engineering decisions:
-  ├── Centralized JS state for dynamic shopping cart (no framework)
-  ├── Optimized DOM manipulation for instant UI updates
-  └── Bootstrap 5 + custom CSS for responsive layout
-```
-
-**Stack:** `HTML5` `CSS3` `JavaScript` `Bootstrap 5`
-
-[![GitHub](https://img.shields.io/badge/View_Code-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Isaac-Soares/chateau-Noir)
-[![Live Demo](https://img.shields.io/badge/⚡_Live_Demo-007ACC?style=flat-square&logoColor=white)](https://693303de9520bf00c3f5631f--golden-kitten-1d99c8.netlify.app)
-
 ---
 
 ## `> CERTIFICATIONS`
