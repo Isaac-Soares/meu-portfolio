@@ -24,7 +24,7 @@ Welcome to my portfolio repository! This project is designed as an interactive, 
 ## 🌐 Live Preview
 Check out the live version of the portfolio. Choose your preferred server:
 
-- ⚡ **Netlify (Fastest Update):**  (https://silly-eclair-f4a6bd.netlify.app)
+- ⚡ **Netlify (Fastest Update):**  https://silly-eclair-f4a6bd.netlify.app
 - 🐙 **GitHub Pages:**  https://isaac-soares.github.io/meu-portfolio/
 
 ---
