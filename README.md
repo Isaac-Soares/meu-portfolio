@@ -142,7 +142,7 @@ Architecture highlights:
 
 > *My contributions, but make it a game 🐍*
 
-![Snake animation](github-contribution-grid-snake-dark.svg)
+![Snake animation](https://raw.githubusercontent.com/Isaac-Soares/Isaac-Soares/output/github-contribution-grid-snake-dark.svg)
 
 ---
 
