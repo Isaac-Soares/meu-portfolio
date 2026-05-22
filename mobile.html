@@ -276,8 +276,12 @@
       color: #000;
       background: var(--green);
       padding: 1px 6px;
-      margin-left: auto;
+      margin-left: 10px;
       font-family: 'Share Tech Mono', monospace;
+    }
+
+    .project-header .toggle-hint {
+      margin-left: auto; /* Empurra o [ + ] / [ - ] para a ponta direita */
     }
 
     .project-stack {
@@ -392,6 +396,60 @@
       letter-spacing: 1px;
     }
 
+    /* =========================================
+       ✨ ACCORDION (EXPANDIR/ESCONDER)
+       ========================================= */
+    .retro-accordion summary {
+      cursor: pointer;
+      list-style: none; /* Remove a setinha padrão */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      outline: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent; /* Tira o brilho azul no clique do celular */
+    }
+
+    .retro-accordion summary::-webkit-details-marker {
+      display: none; 
+    }
+
+    /* Estilo do botãozinho de [ + ] e [ - ] */
+    .toggle-hint {
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+      color: var(--dim);
+      transition: color 0.2s;
+    }
+
+    .retro-accordion summary:active .toggle-hint {
+      color: var(--green);
+    }
+
+    /* Mágica do texto mudando sozinho */
+    .retro-accordion:not([open]) .toggle-hint::after {
+      content: "[ + ]";
+    }
+
+    .retro-accordion[open] .toggle-hint::after {
+      content: "[ - ]";
+    }
+
+    /* Container do conteúdo que aparece ao abrir */
+    .section-content {
+      margin-top: 15px;
+    }
+
+    /* Animação suave para revelar o conteúdo */
+    .retro-accordion[open] .section-content {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* FOOTER */
     .footer {
       padding: 20px 16px;
@@ -430,28 +488,42 @@
   <div class="contact-grid" id="contact-grid"></div>
 
   <!-- BIO -->
-  <div class="section">
-    <div class="section-label">> WHO_AM_I</div>
-    <p class="bio-text" id="bio-text"></p>
-  </div>
+  <details class="section retro-accordion" open>
+    <summary class="section-label">
+      <span>> WHO_AM_I</span>
+      <span class="toggle-hint"></span>
+    </summary>
+    <div class="section-content">
+      <p class="bio-text" id="bio-text"></p>
+    </div>
+  </details>
 
   <!-- SKILLS -->
-  <div class="section">
-    <div class="section-label">> TECH_STACK</div>
-    <div id="skills-container"></div>
-  </div>
+  <details class="section retro-accordion" open>
+    <summary class="section-label">
+      <span>> TECH_STACK</span>
+      <span class="toggle-hint"></span>
+    </summary>
+    <div class="section-content" id="skills-container"></div>
+  </details>
 
   <!-- PROJECTS -->
-  <div class="section">
-    <div class="section-label">> PROJECTS</div>
-    <div id="projects-container"></div>
-  </div>
-
+  <details class="section retro-accordion" open>
+    <summary class="section-label">
+      <span>> PROJECTS</span>
+      <span class="toggle-hint"></span>
+    </summary>
+    <div class="section-content" id="projects-container"></div>
+  </details>
+  
   <!-- CERTIFICATIONS -->
-  <div class="section">
-    <div class="section-label">> CERTIFICATIONS</div>
-    <div id="certs-container"></div>
-  </div>
+  <details class="section retro-accordion" open>
+    <summary class="section-label">
+      <span>> CERTIFICATIONS</span>
+      <span class="toggle-hint"></span>
+    </summary>
+    <div class="section-content" id="certs-container"></div>
+  </details>
 
   <div class="footer">
     <p>[ <a href="index.html">🖥️ VIEW DESKTOP VERSION</a> ]</p>
@@ -511,29 +583,39 @@
 
     // PROJECTS
     document.getElementById('projects-container').innerHTML = d.projects.map(p => `
-      <div class="project-card">
-        <div class="project-header">
+      <details class="project-card retro-accordion">
+        
+        <summary class="project-header">
           <span class="project-emoji">${p.emoji}</span>
           <span class="project-name">${p.name}</span>
           <span class="project-type">${p.type}</span>
-        </div>
-        <div class="project-stack">
-          ${p.stack.map(s => `<span class="stack-badge" style="background:${s.color}">${s.label}</span>`).join('')}
-        </div>
-        <p class="project-desc">${p.about}</p>
-        ${p.features.length ? `
-          <ul class="project-features">
-            ${p.features.map(f => `<li>${f}</li>`).join('')}
-          </ul>
-        ` : ''}
-        ${p.challenge ? `<p class="project-challenge">"${p.challenge}"</p>` : ''}
-        ${p.github || p.demo ? `
-          <div class="project-btns">
-            ${p.github ? `<a href="${p.github}" target="_blank" class="btn-github">🐙 GitHub</a>` : ''}
-            ${p.demo ? `<a href="${p.demo}" target="_blank" class="btn-demo">⚡ Live Demo</a>` : ''}
+          <span class="toggle-hint"></span>
+        </summary>
+        
+        <div class="section-content" style="margin-top: 12px;">
+          <div class="project-stack">
+            ${p.stack.map(s => `<span class="stack-badge" style="background:${s.color}">${s.label}</span>`).join('')}
           </div>
-        ` : ''}
-      </div>
+          
+          <p class="project-desc">${p.about}</p>
+          
+          ${p.features.length ? `
+            <ul class="project-features">
+              ${p.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+          ` : ''}
+          
+          ${p.challenge ? `<p class="project-challenge">"${p.challenge}"</p>` : ''}
+          
+          ${p.github || p.demo ? `
+            <div class="project-btns">
+              ${p.github ? `<a href="${p.github}" target="_blank" class="btn-github">🐙 GitHub</a>` : ''}
+              ${p.demo ? `<a href="${p.demo}" target="_blank" class="btn-demo">⚡ Live Demo</a>` : ''}
+            </div>
+          ` : ''}
+        </div>
+        
+      </details>
     `).join('');
 
     // CERTIFICATIONS
